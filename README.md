@@ -9,11 +9,6 @@ A simple website for the Rotaract Club de Barcelona Diagonal.
 - Admin login system for project management
 - Responsive design with sidebar navigation
 
-## Admin Access
-
-- Username: `nico`
-- Password: `admin12345`
-
 ## Usage
 
 Open `index.html` in a web browser or use a local server:
