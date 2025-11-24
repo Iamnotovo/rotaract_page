@@ -1,0 +1,747 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    line-height: 1.6;
+    transition: margin-left 0.3s;
+}
+
+/* Header and Logo */
+header {
+    background-color: white;
+    text-align: center;
+}
+
+.logo-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background-color: #d4d4d4;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #d0d0d0;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin-right: 12px;
+}
+
+.menu-icon {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.menu-toggle:hover .menu-icon {
+    filter: brightness(0.2);
+}
+
+.nav-label {
+    color: #333333;
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.login-btn-nav {
+    padding: 6px 16px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.login-btn-nav:hover {
+    background-color: #555;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s;
+    z-index: 1000;
+    overflow-y: auto;
+    padding-top: 80px;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar > ul > li {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #003366;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.sidebar > ul > li > a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    font-size: 10px;
+    color: #003366;
+    transition: transform 0.3s;
+    margin-left: 8px;
+}
+
+.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu in Sidebar */
+.sidebar .dropdown {
+    position: relative;
+}
+
+.sidebar .dropdown-menu {
+    display: none;
+    background-color: #f8f8f8;
+    padding-left: 0;
+}
+
+.sidebar .dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.sidebar .dropdown-menu li {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.sidebar .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.sidebar .dropdown-menu a {
+    display: block;
+    padding: 12px 25px 12px 45px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    transition: background-color 0.3s;
+}
+
+.sidebar .dropdown-menu a:hover {
+    background-color: #e8e8e8;
+    color: #003366;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0;
+    margin-left: 20px;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.content-section {
+    display: none;
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.content-section h1 {
+    color: #333333;
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.content-section h2 {
+    color: #003366;
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.light-blue-title {
+    color: #D81B60 !important;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.content-section p {
+    color: black;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.subsection {
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    padding: 20px;
+    color: black;
+    margin-top: 60px;
+}
+
+/* Login Form */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-container button {
+    padding: 12px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background-color: #555;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Admin Dashboard */
+.admin-container {
+    max-width: 1200px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background-color: #b0154d;
+}
+
+.admin-actions {
+    margin-bottom: 30px;
+}
+
+.add-btn {
+    padding: 12px 24px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-btn:hover {
+    background-color: #555;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.project-thumb {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-info h3 {
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #357ABD;
+}
+
+.delete-btn {
+    background-color: #d81b60;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b0154d;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card-content {
+    padding: 20px;
+}
+
+.project-card-content h3 {
+    color: #333333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.project-card-content p {
+    color: black;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.large-modal {
+    max-width: 900px;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Project Detail */
+.project-detail h1 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.project-detail-main-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.project-detail-section {
+    margin-bottom: 30px;
+}
+
+.project-detail-section h2 {
+    color: #333333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 5px;
+}
+
+.project-detail-description-text {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.project-detail-desc-image {
+    width: 100%;
+    max-width: 500px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* Project Form */
+#projectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#projectForm label {
+    font-weight: bold;
+    color: #333333;
+    margin-top: 10px;
+}
+
+#projectForm input,
+#projectForm textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+#projectForm input[type="file"] {
+    padding: 8px;
+    border: 2px dashed #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+#projectForm input[type="file"]:hover {
+    background-color: #f0f0f0;
+    border-color: #999;
+}
+
+#projectForm textarea {
+    resize: vertical;
+}
+
+.photo-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.photo-input-group input[type="file"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.photo-input-group input[type="url"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-or {
+    color: #666;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.photo-preview {
+    max-width: 300px;
+    max-height: 300px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.photos-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.photo-preview-item {
+    position: relative;
+    display: inline-block;
+}
+
+.photo-preview-small {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.remove-photo-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-photo-btn:hover {
+    background-color: #b0154d;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-actions button[type="submit"] {
+    background-color: #333333;
+    color: white;
+}
+
+.form-actions button[type="submit"]:hover {
+    background-color: #555;
+}
+
+.form-actions button[type="button"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+.form-actions button[type="button"]:hover {
+    background-color: #bbb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+        left: -250px;
+    }
+
+    .content-section h1 {
+        font-size: 2em;
+    }
+
+    .content-section h2 {
+        font-size: 1.5em;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-item {
+        flex-direction: column;
+    }
+    
+    .project-thumb {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .project-detail-description {
+        flex-direction: column;
+    }
+    
+    .project-detail-desc-image {
+        width: 100%;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
