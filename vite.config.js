@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// GitHub Pages serves from https://<user>.github.io/<repo>/
+// Relative base so assets load correctly on GitHub Pages (username.github.io/repo/)
 export default defineConfig({
   plugins: [react()],
   publicDir: 'public',
   root: '.',
-  base: '/rotaract_page/',
-  
+  base: './',
 })
