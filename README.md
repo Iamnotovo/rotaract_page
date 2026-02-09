@@ -38,6 +38,18 @@ Build for production:
 npm run build
 ```
 
+Output is in the `dist/` folder.
+
+## GitHub Pages
+
+The site is set up to deploy to GitHub Pages when you push to `main`.
+
+1. In your repo go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main`; the workflow will build the React app and deploy it.
+
+The site will be at: `https://<your-username>.github.io/rotaract_page/`
+
 ## Admin Access
 
 - Username: `nico`
