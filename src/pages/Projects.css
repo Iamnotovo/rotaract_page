@@ -1,0 +1,34 @@
+.projects-page {
+    text-align: left;
+}
+
+.page-title {
+    color: #333333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 5px;
+}
+
+.no-projects {
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+        font-size: 2em;
+    }
+}

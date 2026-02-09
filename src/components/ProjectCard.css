@@ -1,0 +1,35 @@
+.project-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card-content {
+    padding: 20px;
+}
+
+.project-card-content h3 {
+    color: #333333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.project-card-content p {
+    color: black;
+    font-size: 0.95em;
+    line-height: 1.5;
+}

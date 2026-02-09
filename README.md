@@ -1,30 +1,53 @@
 # Rotaract Club de Barcelona Diagonal Website
 
-A simple website for the Rotaract Club de Barcelona Diagonal.
+A modern React website for the Rotaract Club de Barcelona Diagonal.
 
 ## Features
 
-- Home page with club information
-- Projects section with admin management
-- Admin login system for project management
-- Responsive design with sidebar navigation
+- **Home Page**: Who We Are section with photos, Can I Join Rotaract info, and contact form
+- **Projects**: Card grid display with detailed project views (title, photo, description, gallery)
+- **Club Sections**: About Us, Meetings, Useful Links, and Members
+- **Members**: Photo, name, and role display
+- **Admin Panel**: Full CRUD management for projects, members, links, and contact submissions
+- **Contact Form**: Saves submissions to admin dashboard
+- **Responsive Design**: Modern UI with sidebar navigation
 
-## Usage
+## Setup
 
-Open `index.html` in a web browser or use a local server:
+Install dependencies:
 
 ```bash
-python3 -m http.server 8000
+npm install
 ```
 
-Then visit `http://localhost:8000`
+## Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then visit `http://localhost:5173`
+
+## Build
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Admin Access
+
+- Username: `nico`
+- Password: `admin12345`
 
 ## Project Management
 
-Admins can add, edit, and delete projects through the admin dashboard. Projects support:
-- Main photo (upload or URL)
-- Description
-- What was done
-- What we learned
-- Additional photos gallery
+Admins can manage:
+- **Projects**: Add/edit/delete with title, photo, description, what was done, what we learned, and gallery photos
+- **Members**: Add/edit/delete with photo, name, and role
+- **Useful Links**: Add/edit/delete links with descriptions
+- **Contact Submissions**: View all contact form submissions
 
