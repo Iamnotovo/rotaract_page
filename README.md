@@ -42,13 +42,14 @@ Output is in the `dist/` folder.
 
 ## GitHub Pages
 
-The site is set up to deploy to GitHub Pages when you push to `main`.
+The site deploys to GitHub Pages when you push to `main`.
 
 1. In your repo go to **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Push to `main`; the workflow will build the React app and deploy it.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Set **Branch** to `gh-pages` and folder to `/ (root)`. Save.
+4. Push to `main`; the workflow builds the React app and pushes it to the `gh-pages` branch.
 
-The site will be at: `https://<your-username>.github.io/rotaract_page/`
+The site will be at: `https://iamnotovo.github.io/rotaract_page/`
 
 ## Admin Access
 
