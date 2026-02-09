@@ -46,8 +46,10 @@ The site deploys to GitHub Pages when you push to `main`.
 
 1. In your repo go to **Settings → Pages**.
 2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-3. Set **Branch** to `gh-pages` and folder to `/ (root)`. Save.
+3. Set **Branch** to **`gh-pages`** (not `main`) and folder to **/ (root)**. Save.
 4. Push to `main`; the workflow builds the React app and pushes it to the `gh-pages` branch.
+
+**Important:** If the branch is set to `main`, you will see a white page and a 404 for `main.jsx`, because GitHub would serve the source `index.html` instead of the built site. Always use the **`gh-pages`** branch.
 
 The site will be at: `https://iamnotovo.github.io/rotaract_page/`
 
