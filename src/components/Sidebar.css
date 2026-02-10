@@ -4,12 +4,12 @@
     left: -300px;
     width: 300px;
     height: 100vh;
-    background-color: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s;
+    background: #fff;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
+    transition: left 0.25s ease;
     z-index: 1000;
     overflow-y: auto;
-    padding-top: 80px;
+    padding-top: 88px;
 }
 
 .sidebar.open {
@@ -22,23 +22,24 @@
 }
 
 .sidebar > ul > li {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .sidebar > ul > li > a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
+    padding: 14px 24px;
     text-decoration: none;
-    color: #003366;
-    font-weight: 600;
-    transition: background-color 0.3s;
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background-color 0.2s;
 }
 
 .sidebar > ul > li > a:hover,
 .sidebar > ul > li > a.active {
-    background-color: #f0f0f0;
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .dropdown {
@@ -47,7 +48,7 @@
 
 .dropdown-menu {
     display: none;
-    background-color: #f8f8f8;
+    background: #fafafa;
     padding-left: 0;
 }
 
@@ -56,7 +57,7 @@
 }
 
 .dropdown-menu li {
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .dropdown-menu li:last-child {
@@ -65,23 +66,24 @@
 
 .dropdown-menu a {
     display: block;
-    padding: 12px 25px 12px 45px;
+    padding: 12px 24px 12px 40px;
     text-decoration: none;
-    color: black;
-    font-weight: normal;
-    transition: background-color 0.3s;
+    color: #444;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    transition: background-color 0.2s;
 }
 
 .dropdown-menu a:hover,
 .dropdown-menu a.active {
-    background-color: #e8e8e8;
-    color: #003366;
+    background: rgba(0, 0, 0, 0.04);
+    color: #c2185b;
 }
 
 .dropdown-arrow {
-    font-size: 10px;
-    color: #003366;
-    transition: transform 0.3s;
+    font-size: 0.625rem;
+    color: #666;
+    transition: transform 0.25s;
     margin-left: 8px;
 }
 
@@ -91,7 +93,7 @@
 
 @media (max-width: 768px) {
     .sidebar {
-        width: 250px;
-        left: -250px;
+        width: 280px;
+        left: -280px;
     }
 }

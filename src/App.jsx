@@ -68,6 +68,9 @@ function App() {
     <div className="app">
       <Header
         onMenuClick={() => setSidebarOpen(!sidebarOpen)}
+        currentSection={currentSection}
+        onNavigate={navigateTo}
+        isAdminLoggedIn={isAdminLoggedIn}
       />
       <Sidebar
         isOpen={sidebarOpen}

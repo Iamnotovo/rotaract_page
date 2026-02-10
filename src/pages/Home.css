@@ -1,95 +1,110 @@
 .home {
-    text-align: left;
+    padding-bottom: 0;
 }
 
-.main-title {
-    color: #333333;
-    font-size: 2.5em;
-    margin-bottom: 5px;
-    border-bottom: 2px solid #333333;
-    padding-bottom: 5px;
-    text-align: left;
+.hero {
+    position: relative;
+    width: 100%;
+    height: 58vh;
+    min-height: 380px;
+    max-height: 620px;
+    overflow: hidden;
+    background: #f7f7f7;
 }
 
-.section-title {
-    color: #333333;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #333333;
-    padding-bottom: 5px;
+/* Crop anchor: 50% = center, 85% = lower (shows people not sky). Change this to tweak what’s visible. */
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
 }
 
-.pink-title {
-    color: #D81B60 !important;
-    font-size: 1.5em;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    text-align: left;
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.15) 100%);
+    pointer-events: none;
 }
 
-.who-we-are {
-    margin: 40px 0;
+.home-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
 }
 
-.who-we-are-content {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    flex-wrap: wrap;
+.home-title {
+    font-size: clamp(1.85rem, 4vw, 2.35rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
 }
 
-.who-we-are-text {
-    flex: 1;
-    min-width: 300px;
+.home-lead {
+    font-size: 1.0625rem;
+    color: #444;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
 }
 
-.who-we-are-text p {
-    color: black;
-    font-size: 1.1em;
-    line-height: 1.8;
+.home-block {
+    margin-bottom: 2.5rem;
 }
 
-.who-we-are-photos {
-    flex: 1;
-    min-width: 300px;
+.home-block:last-child {
+    margin-bottom: 0;
 }
 
-.photo-placeholder {
-    background-color: #f5f5f5;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    padding: 60px 20px;
-    text-align: center;
-    color: #666;
+.home-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #c2185b;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.75rem;
 }
 
-.photo-placeholder p {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #333;
+.home-block p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.75;
 }
 
-.join-section {
-    margin: 40px 0;
+.home-link {
+    color: #c2185b;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
 }
 
-.join-section p {
-    color: black;
-    font-size: 1.1em;
-    line-height: 1.8;
-    margin-top: 15px;
+.home-link:hover {
+    border-bottom-color: #c2185b;
 }
 
-.contact-section {
-    margin: 40px 0;
+.home-block-contact {
+    padding-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
-    .who-we-are-content {
-        flex-direction: column;
+    .hero {
+        min-height: 280px;
+        max-height: 45vh;
     }
-    
-    .main-title {
-        font-size: 2em;
+
+    .home-content {
+        padding: 40px 20px 56px;
+    }
+
+    .home-title {
+        margin-bottom: 1.25rem;
+    }
+
+    .home-lead {
+        margin-bottom: 2rem;
     }
 }
