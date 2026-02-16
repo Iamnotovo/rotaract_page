@@ -63,6 +63,86 @@
     margin-top: 20px;
 }
 
+.admin-subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 24px 0 12px;
+}
+
+.admin-subtitle:first-of-type {
+    margin-top: 0;
+}
+
+.direction-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.direction-slot label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.direction-slot select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+}
+
+.pin-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: #c2185b;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+.pin-btn {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pin-btn:hover {
+    background: #e0e0e0;
+}
+
+.item-order {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.order-btn {
+    padding: 4px 10px;
+    font-size: 0.875rem;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order-btn:hover:not(:disabled) {
+    background: #e0e0e0;
+}
+
+.order-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .add-btn {
     padding: 12px 24px;
     background-color: #333333;

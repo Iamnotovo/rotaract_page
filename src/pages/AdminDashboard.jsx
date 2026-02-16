@@ -7,6 +7,7 @@ import './AdminDashboard.css'
 function AdminDashboard({ onLogout }) {
   const [projects, setProjects] = useState([])
   const [members, setMembers] = useState([])
+  const [directionSlots, setDirectionSlots] = useState([null, null, null, null, null])
   const [links, setLinks] = useState([])
   const [activeTab, setActiveTab] = useState('projects')
   const [editingProject, setEditingProject] = useState(null)
@@ -23,24 +24,42 @@ function AdminDashboard({ onLogout }) {
   const loadData = () => {
     const savedProjects = localStorage.getItem('projects')
     const savedMembers = localStorage.getItem('members')
+    const savedDirection = localStorage.getItem('directionSlots')
     const savedLinks = localStorage.getItem('usefulLinks')
     
     if (savedProjects) setProjects(JSON.parse(savedProjects))
-    if (savedMembers) setMembers(JSON.parse(savedMembers))
+    if (savedMembers) {
+      const list = JSON.parse(savedMembers)
+      setMembers(list.map((m, i) => ({ ...m, id: m.id ?? `m${Date.now()}-${i}`, order: m.order ?? i })))
+    }
+    if (savedDirection) {
+      const raw = JSON.parse(savedDirection)
+      setDirectionSlots(Array.isArray(raw) && raw.length >= 5 ? raw.slice(0, 5) : [null, null, null, null, null])
+    }
     if (savedLinks) setLinks(JSON.parse(savedLinks))
   }
 
   const handleProjectSave = (projectData) => {
     const updated = [...projects]
+    const pinned = editingProject !== null ? (projects[editingProject].pinned ?? false) : false
+    const data = { ...projectData, pinned }
     if (editingProject !== null) {
-      updated[editingProject] = projectData
+      updated[editingProject] = data
     } else {
-      updated.push(projectData)
+      updated.push(data)
     }
     setProjects(updated)
     localStorage.setItem('projects', JSON.stringify(updated))
     setShowProjectForm(false)
     setEditingProject(null)
+  }
+
+  const handleProjectPin = (index) => {
+    const updated = projects.map((p, i) =>
+      i === index ? { ...p, pinned: !(p.pinned ?? false) } : p
+    )
+    setProjects(updated)
+    localStorage.setItem('projects', JSON.stringify(updated))
   }
 
   const handleProjectDelete = (index) => {
@@ -54,9 +73,10 @@ function AdminDashboard({ onLogout }) {
   const handleMemberSave = (memberData) => {
     const updated = [...members]
     if (editingMember !== null) {
-      updated[editingMember] = memberData
+      const existing = updated[editingMember]
+      updated[editingMember] = { ...existing, ...memberData, id: existing.id, order: existing.order ?? editingMember }
     } else {
-      updated.push(memberData)
+      updated.push({ ...memberData, id: `m${Date.now()}`, order: updated.length })
     }
     setMembers(updated)
     localStorage.setItem('members', JSON.stringify(updated))
@@ -65,11 +85,32 @@ function AdminDashboard({ onLogout }) {
   }
 
   const handleMemberDelete = (index) => {
-    if (window.confirm('Are you sure you want to delete this member?')) {
-      const updated = members.filter((_, i) => i !== index)
-      setMembers(updated)
-      localStorage.setItem('members', JSON.stringify(updated))
-    }
+    if (!window.confirm('Are you sure you want to delete this member?')) return
+    const id = members[index]?.id
+    const updated = members.filter((_, i) => i !== index)
+    const newSlots = directionSlots.map((sid) => (sid === id ? null : sid))
+    setMembers(updated)
+    setDirectionSlots(newSlots)
+    localStorage.setItem('members', JSON.stringify(updated))
+    localStorage.setItem('directionSlots', JSON.stringify(newSlots))
+  }
+
+  const handleMemberMove = (index, direction) => {
+    if (index === 0 && direction === -1) return
+    if (index === members.length - 1 && direction === 1) return
+    const updated = [...members]
+    const swap = index + direction
+    ;[updated[index], updated[swap]] = [updated[swap], updated[index]]
+    const reordered = updated.map((m, i) => ({ ...m, order: i }))
+    setMembers(reordered)
+    localStorage.setItem('members', JSON.stringify(reordered))
+  }
+
+  const setDirectionSlot = (slotIndex, memberId) => {
+    const newSlots = [...directionSlots]
+    newSlots[slotIndex] = memberId || null
+    setDirectionSlots(newSlots)
+    localStorage.setItem('directionSlots', JSON.stringify(newSlots))
   }
 
   const handleLinkSave = (linkData) => {
@@ -146,8 +187,12 @@ function AdminDashboard({ onLogout }) {
                 <div className="item-info">
                   <h3>{project.title}</h3>
                   <p>{project.description.substring(0, 100)}...</p>
+                  {project.pinned && <span className="pin-badge">Pinned</span>}
                 </div>
                 <div className="item-actions">
+                  <button onClick={() => handleProjectPin(index)} className="pin-btn" title={project.pinned ? 'Unpin' : 'Pin first'}>
+                    {project.pinned ? '📌 Unpin' : '📌 Pin'}
+                  </button>
                   <button onClick={() => { setEditingProject(index); setShowProjectForm(true) }} className="edit-btn">
                     Edit
                   </button>
@@ -163,6 +208,26 @@ function AdminDashboard({ onLogout }) {
 
       {activeTab === 'members' && (
         <div className="admin-section">
+          <h2 className="admin-subtitle">Direction (5 slots)</h2>
+          <div className="direction-slots">
+            {[0, 1, 2, 3, 4].map((slotIndex) => (
+              <div key={slotIndex} className="direction-slot">
+                <label>Slot {slotIndex + 1}</label>
+                <select
+                  value={directionSlots[slotIndex] ?? ''}
+                  onChange={(e) => setDirectionSlot(slotIndex, e.target.value || null)}
+                >
+                  <option value="">— Empty —</option>
+                  {members.map((m) => (
+                    <option key={m.id} value={m.id}>
+                      {m.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            ))}
+          </div>
+          <h2 className="admin-subtitle">All members (order)</h2>
           <button onClick={() => { setEditingMember(null); setShowMemberForm(true) }} className="add-btn">
             Add New Member
           </button>
@@ -175,7 +240,11 @@ function AdminDashboard({ onLogout }) {
           )}
           <div className="items-list">
             {members.map((member, index) => (
-              <div key={index} className="item-card">
+              <div key={member.id ?? index} className="item-card">
+                <div className="item-order">
+                  <button type="button" onClick={() => handleMemberMove(index, -1)} disabled={index === 0} className="order-btn">↑</button>
+                  <button type="button" onClick={() => handleMemberMove(index, 1)} disabled={index === members.length - 1} className="order-btn">↓</button>
+                </div>
                 <img src={member.photo} alt={member.name} className="item-thumb" />
                 <div className="item-info">
                   <h3>{member.name}</h3>

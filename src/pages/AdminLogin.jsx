@@ -1,20 +1,29 @@
 import React, { useState } from 'react'
+import { verifyPassword, getAdminUsername } from '../utils/auth'
 import './AdminLogin.css'
 
 function AdminLogin({ onLogin, navigateTo }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (username === 'nico' && password === 'admin12345') {
-      onLogin()
-      navigateTo('admin-dashboard')
-      setError('')
-    } else {
-      setError('Invalid username or password')
+    setError('')
+    setLoading(true)
+    try {
+      const passwordValid = await verifyPassword(password)
+      if (username === getAdminUsername() && passwordValid) {
+        onLogin()
+        navigateTo('admin-dashboard')
+      } else {
+        setError('Invalid username or password')
+      }
+    } catch {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -30,6 +39,7 @@ function AdminLogin({ onLogin, navigateTo }) {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
           <div className="form-group">
@@ -39,10 +49,13 @@ function AdminLogin({ onLogin, navigateTo }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
           {error && <p className="error-message">{error}</p>}
-          <button type="submit" className="login-btn">Login</button>
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? 'Checking…' : 'Login'}
+          </button>
         </form>
       </div>
     </div>

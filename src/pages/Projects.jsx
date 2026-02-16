@@ -14,7 +14,8 @@ function Projects() {
   const loadProjects = () => {
     const saved = localStorage.getItem('projects')
     if (saved) {
-      setProjects(JSON.parse(saved))
+      const list = JSON.parse(saved)
+      setProjects([...list].sort((a, b) => (a.pinned ? 0 : 1) - (b.pinned ? 0 : 1)))
     }
   }
 
@@ -35,7 +36,7 @@ function Projects() {
               />
             ))}
           </div>
-          
+
           {selectedProject !== null && (
             <ProjectDetail
               project={projects[selectedProject]}

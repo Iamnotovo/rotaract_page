@@ -1,7 +1,37 @@
+.members-section {
+    margin-bottom: 48px;
+}
+
+.members-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #c2185b;
+    margin-bottom: 20px;
+}
+
+.direction-grid {
+    margin-bottom: 8px;
+}
+
+.member-slot {
+    min-height: 200px;
+}
+
+.member-slot-empty {
+    padding: 24px;
+    color: #999;
+    font-size: 0.9375rem;
+    text-align: center;
+}
+
 .no-members {
     color: #666;
     font-size: 1.1em;
-    margin-top: 40px;
+    margin-top: 16px;
 }
 
 .members-grid {
