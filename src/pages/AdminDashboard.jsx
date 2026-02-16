@@ -183,10 +183,10 @@ function AdminDashboard({ onLogout }) {
           <div className="items-list">
             {projects.map((project, index) => (
               <div key={index} className="item-card">
-                <img src={project.mainPhoto} alt={project.title} className="item-thumb" />
+                <img src={project.mainPhoto || ''} alt={project.title || 'Project'} className="item-thumb" />
                 <div className="item-info">
-                  <h3>{project.title}</h3>
-                  <p>{project.description.substring(0, 100)}...</p>
+                  <h3>{project.title || 'Untitled project'}</h3>
+                  <p>{(project.description || '').substring(0, 100)}{(project.description || '').length > 100 ? '...' : ''}</p>
                   {project.pinned && <span className="pin-badge">Pinned</span>}
                 </div>
                 <div className="item-actions">

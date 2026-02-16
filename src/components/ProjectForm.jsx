@@ -89,7 +89,7 @@ function ProjectForm({ project, onSave, onCancel }) {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              required
+              placeholder="Project title (optional)"
             />
           </div>
 
@@ -100,7 +100,7 @@ function ProjectForm({ project, onSave, onCancel }) {
               value={formData.description}
               onChange={handleChange}
               rows="4"
-              required
+              placeholder="Description (optional)"
             />
           </div>
 
@@ -118,8 +118,7 @@ function ProjectForm({ project, onSave, onCancel }) {
                 name="mainPhoto"
                 value={formData.mainPhoto}
                 onChange={handleChange}
-                placeholder="Enter photo URL"
-                required
+                placeholder="Enter photo URL (optional)"
               />
             </div>
             {formData.mainPhoto && (

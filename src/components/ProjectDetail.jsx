@@ -7,15 +7,17 @@ function ProjectDetail({ project, onClose }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <span className="close-modal" onClick={onClose}>&times;</span>
         <div className="project-detail">
-          <h1>{project.title}</h1>
+          <h1>{project.title || 'Untitled project'}</h1>
           
-          <div className="project-detail-main">
-            <img src={project.mainPhoto} alt={project.title} className="project-detail-main-image" />
-          </div>
+          {project.mainPhoto && (
+            <div className="project-detail-main">
+              <img src={project.mainPhoto} alt={project.title || 'Project'} className="project-detail-main-image" />
+            </div>
+          )}
           
           <div className="project-detail-section">
             <h2>Description</h2>
-            <p className="project-detail-description-text">{project.description}</p>
+            <p className="project-detail-description-text">{project.description || ''}</p>
           </div>
           
           {project.whatDone && (
