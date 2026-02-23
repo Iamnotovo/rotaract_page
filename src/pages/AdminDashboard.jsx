@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ProjectForm from '../components/ProjectForm'
 import MemberForm from '../components/MemberForm'
 import LinkForm from '../components/LinkForm'
+import { getMemberPhotoUrl } from '../utils/memberPhoto'
 import './AdminDashboard.css'
 
 function AdminDashboard({ onLogout }) {
@@ -245,7 +246,7 @@ function AdminDashboard({ onLogout }) {
                   <button type="button" onClick={() => handleMemberMove(index, -1)} disabled={index === 0} className="order-btn">↑</button>
                   <button type="button" onClick={() => handleMemberMove(index, 1)} disabled={index === members.length - 1} className="order-btn">↓</button>
                 </div>
-                <img src={member.photo} alt={member.name} className="item-thumb" />
+                <img src={getMemberPhotoUrl(member.photo)} alt={member.name} className="item-thumb" />
                 <div className="item-info">
                   <h3>{member.name}</h3>
                   {member.role && <p>{member.role}</p>}

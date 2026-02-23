@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { getMemberPhotoUrl } from '../utils/memberPhoto'
 import './Members.css'
 
 function Members() {
@@ -36,7 +37,7 @@ function Members() {
               <div key={`dir-${i}`} className="member-card member-slot">
                 {member ? (
                   <>
-                    <img src={member.photo} alt={member.name} className="member-photo" />
+                    <img src={getMemberPhotoUrl(member.photo)} alt={member.name} className="member-photo" />
                     <div className="member-info">
                       <h3 className="member-name">{member.name}</h3>
                       {member.role && <p className="member-role">{member.role}</p>}
@@ -59,7 +60,7 @@ function Members() {
           <div className="members-grid">
             {restOrdered.map((member, index) => (
               <div key={member.id ?? index} className="member-card">
-                <img src={member.photo} alt={member.name} className="member-photo" />
+                <img src={getMemberPhotoUrl(member.photo)} alt={member.name} className="member-photo" />
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>
                   {member.role && <p className="member-role">{member.role}</p>}

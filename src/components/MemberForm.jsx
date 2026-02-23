@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { getMemberPhotoUrl } from '../utils/memberPhoto'
 import './MemberForm.css'
 
 function MemberForm({ member, onSave, onCancel }) {
@@ -7,6 +8,7 @@ function MemberForm({ member, onSave, onCancel }) {
     role: '',
     photo: ''
   })
+  const [photoLoading, setPhotoLoading] = useState(false)
 
   useEffect(() => {
     if (member) {
@@ -28,12 +30,14 @@ function MemberForm({ member, onSave, onCancel }) {
   const handleFileUpload = (e) => {
     const file = e.target.files[0]
     if (file) {
+      setPhotoLoading(true)
       const reader = new FileReader()
       reader.onload = (event) => {
-        setFormData({
-          ...formData,
+        setFormData((prev) => ({
+          ...prev,
           photo: event.target.result
-        })
+        }))
+        setPhotoLoading(false)
       }
       reader.readAsDataURL(file)
     }
@@ -81,21 +85,26 @@ function MemberForm({ member, onSave, onCancel }) {
               />
               <span className="input-or">OR</span>
               <input
-                type="url"
+                type="text"
                 name="photo"
                 value={formData.photo}
                 onChange={handleChange}
-                placeholder="Enter photo URL"
+                placeholder="URL or path (e.g. members/nico.jpg)"
                 required
               />
             </div>
+            <p className="photo-hint">
+              For permanent storage: add the image to <code>public/members/</code> in your project, then enter <code>members/filename.jpg</code> here.
+            </p>
             {formData.photo && (
-              <img src={formData.photo} alt="Preview" className="photo-preview" />
+              <img src={getMemberPhotoUrl(formData.photo)} alt="Preview" className="photo-preview" />
             )}
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="save-btn">Save Member</button>
+            <button type="submit" className="save-btn" disabled={photoLoading}>
+              {photoLoading ? 'Loading photo…' : 'Save Member'}
+            </button>
             <button type="button" onClick={onCancel} className="cancel-btn">Cancel</button>
           </div>
         </form>
