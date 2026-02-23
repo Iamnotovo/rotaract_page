@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { getProjectPhotoUrl } from '../utils/memberPhoto'
 import './ProjectForm.css'
 
 function ProjectForm({ project, onSave, onCancel }) {
@@ -36,10 +37,10 @@ function ProjectForm({ project, onSave, onCancel }) {
     if (file) {
       const reader = new FileReader()
       reader.onload = (event) => {
-        setFormData({
-          ...formData,
+        setFormData((prev) => ({
+          ...prev,
           [field]: event.target.result
-        })
+        }))
       }
       reader.readAsDataURL(file)
     }
@@ -47,17 +48,19 @@ function ProjectForm({ project, onSave, onCancel }) {
 
   const handleMultipleFiles = (e) => {
     const files = Array.from(e.target.files)
-    const readers = []
-    
+    if (files.length === 0) return
+    let loaded = 0
+    const results = []
     files.forEach((file) => {
       const reader = new FileReader()
       reader.onload = (event) => {
-        readers.push(event.target.result)
-        if (readers.length === files.length) {
-          setFormData({
-            ...formData,
-            photos: [...formData.photos, ...readers]
-          })
+        results.push(event.target.result)
+        loaded += 1
+        if (loaded === files.length) {
+          setFormData((prev) => ({
+            ...prev,
+            photos: [...prev.photos, ...results]
+          }))
         }
       }
       reader.readAsDataURL(file)
@@ -114,15 +117,16 @@ function ProjectForm({ project, onSave, onCancel }) {
               />
               <span className="input-or">OR</span>
               <input
-                type="url"
+                type="text"
                 name="mainPhoto"
                 value={formData.mainPhoto}
                 onChange={handleChange}
-                placeholder="Enter photo URL (optional)"
+                placeholder="URL or path (e.g. projects/myproject/main.jpg)"
               />
             </div>
+            <p className="photo-hint">For permanent storage: add images to <code>public/projects/your-project-name/</code> and use paths like <code>projects/your-project-name/main.jpg</code>.</p>
             {formData.mainPhoto && (
-              <img src={formData.mainPhoto} alt="Preview" className="photo-preview" />
+              <img src={getProjectPhotoUrl(formData.mainPhoto)} alt="Preview" className="photo-preview" />
             )}
           </div>
 
@@ -159,13 +163,13 @@ function ProjectForm({ project, onSave, onCancel }) {
               value={formData.photos.join('\n')}
               onChange={handlePhotosTextChange}
               rows="4"
-              placeholder="Enter one photo URL per line"
+              placeholder="One URL or path per line (e.g. projects/myproject/photo1.jpg)"
             />
             {formData.photos.length > 0 && (
               <div className="photos-preview">
                 {formData.photos.map((photo, index) => (
                   <div key={index} className="photo-preview-item">
-                    <img src={photo} alt={`Preview ${index + 1}`} className="photo-preview-small" />
+                    <img src={getProjectPhotoUrl(photo)} alt={`Preview ${index + 1}`} className="photo-preview-small" />
                   </div>
                 ))}
               </div>

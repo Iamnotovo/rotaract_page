@@ -1,4 +1,5 @@
 import React from 'react'
+import { getProjectPhotoUrl } from '../utils/memberPhoto'
 import './ProjectDetail.css'
 
 function ProjectDetail({ project, onClose }) {
@@ -11,7 +12,7 @@ function ProjectDetail({ project, onClose }) {
           
           {project.mainPhoto && (
             <div className="project-detail-main">
-              <img src={project.mainPhoto} alt={project.title || 'Project'} className="project-detail-main-image" />
+              <img src={getProjectPhotoUrl(project.mainPhoto)} alt={project.title || 'Project'} className="project-detail-main-image" />
             </div>
           )}
           
@@ -39,7 +40,7 @@ function ProjectDetail({ project, onClose }) {
               <h2>Gallery</h2>
               <div className="project-gallery">
                 {project.photos.map((photo, index) => (
-                  <img key={index} src={photo} alt={`Project photo ${index + 1}`} className="gallery-image" />
+                  <img key={index} src={getProjectPhotoUrl(photo)} alt={`Project photo ${index + 1}`} className="gallery-image" />
                 ))}
               </div>
             </div>

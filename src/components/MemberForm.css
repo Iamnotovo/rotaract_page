@@ -87,6 +87,22 @@
     font-size: 11px;
 }
 
+.photo-select {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+}
+
+.photo-options-error {
+    font-size: 12px;
+    color: #c00;
+    margin: 8px 0 0 0;
+}
+
 .photo-preview {
     max-width: 200px;
     max-height: 200px;

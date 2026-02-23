@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getMemberPhotoUrl } from '../utils/memberPhoto'
+import { loadSiteData } from '../utils/siteData'
 import './Members.css'
 
 function Members() {
@@ -7,13 +8,14 @@ function Members() {
   const [directionSlots, setDirectionSlots] = useState([null, null, null, null, null])
 
   useEffect(() => {
-    const saved = localStorage.getItem('members')
-    const savedDir = localStorage.getItem('directionSlots')
-    if (saved) setMembers(JSON.parse(saved))
-    if (savedDir) {
-      const raw = JSON.parse(savedDir)
-      setDirectionSlots(Array.isArray(raw) && raw.length >= 5 ? raw.slice(0, 5) : [null, null, null, null, null])
-    }
+    let cancelled = false
+    loadSiteData().then((data) => {
+      if (!cancelled) {
+        if (data.members) setMembers(data.members)
+        if (data.directionSlots) setDirectionSlots(data.directionSlots)
+      }
+    })
+    return () => { cancelled = true }
   }, [])
 
   const directionMembers = directionSlots.map((id) =>

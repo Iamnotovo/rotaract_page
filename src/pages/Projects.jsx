@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import ProjectDetail from '../components/ProjectDetail'
+import { loadSiteData } from '../utils/siteData'
 import './Projects.css'
 
 function Projects() {
@@ -8,16 +9,14 @@ function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
 
   useEffect(() => {
-    loadProjects()
+    let cancelled = false
+    loadSiteData().then((data) => {
+      if (!cancelled && data.projects) {
+        setProjects([...data.projects].sort((a, b) => (a.pinned ? 0 : 1) - (b.pinned ? 0 : 1)))
+      }
+    })
+    return () => { cancelled = true }
   }, [])
-
-  const loadProjects = () => {
-    const saved = localStorage.getItem('projects')
-    if (saved) {
-      const list = JSON.parse(saved)
-      setProjects([...list].sort((a, b) => (a.pinned ? 0 : 1) - (b.pinned ? 0 : 1)))
-    }
-  }
 
   return (
     <div className="projects-page">

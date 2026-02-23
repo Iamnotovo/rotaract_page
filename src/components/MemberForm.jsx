@@ -2,13 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { getMemberPhotoUrl } from '../utils/memberPhoto'
 import './MemberForm.css'
 
+const BASE = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL ? import.meta.env.BASE_URL : './'
+
 function MemberForm({ member, onSave, onCancel }) {
   const [formData, setFormData] = useState({
     name: '',
     role: '',
     photo: ''
   })
-  const [photoLoading, setPhotoLoading] = useState(false)
+  const [photoOptions, setPhotoOptions] = useState([])
+  const [photoOptionsError, setPhotoOptionsError] = useState(null)
+
+  useEffect(() => {
+    fetch(`${BASE}members/member-photos.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error('Not found'))))
+      .then((list) => setPhotoOptions(Array.isArray(list) ? list : []))
+      .catch(() => setPhotoOptionsError('Run "npm run sync-members" so member photos are available.'))
+  }, [])
 
   useEffect(() => {
     if (member) {
@@ -27,26 +37,12 @@ function MemberForm({ member, onSave, onCancel }) {
     })
   }
 
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      setPhotoLoading(true)
-      const reader = new FileReader()
-      reader.onload = (event) => {
-        setFormData((prev) => ({
-          ...prev,
-          photo: event.target.result
-        }))
-        setPhotoLoading(false)
-      }
-      reader.readAsDataURL(file)
-    }
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     onSave(formData)
   }
+
+  const selectedPath = formData.photo
 
   return (
     <div className="form-modal">
@@ -77,34 +73,29 @@ function MemberForm({ member, onSave, onCancel }) {
 
           <div className="form-group">
             <label>Photo:</label>
-            <div className="photo-input-group">
-              <input
-                type="file"
-                accept="image/png,image/jpeg,image/jpg"
-                onChange={handleFileUpload}
-              />
-              <span className="input-or">OR</span>
-              <input
-                type="text"
-                name="photo"
-                value={formData.photo}
-                onChange={handleChange}
-                placeholder="URL or path (e.g. members/nico.jpg)"
-                required
-              />
-            </div>
-            <p className="photo-hint">
-              For permanent storage: add the image to <code>public/members/</code> in your project, then enter <code>members/filename.jpg</code> here.
-            </p>
-            {formData.photo && (
-              <img src={getMemberPhotoUrl(formData.photo)} alt="Preview" className="photo-preview" />
+            <select
+              name="photo"
+              value={selectedPath}
+              onChange={handleChange}
+              required
+              className="photo-select"
+            >
+              <option value="">— Choose a photo —</option>
+              {photoOptions.map((filename) => (
+                <option key={filename} value={`members/${filename}`}>
+                  {filename}
+                </option>
+              ))}
+            </select>
+            {photoOptionsError && <p className="photo-options-error">{photoOptionsError}</p>}
+            <p className="photo-hint">Photos are taken from the <code>members/</code> folder. Add new images there and run <code>npm run sync-members</code>.</p>
+            {selectedPath && (
+              <img src={getMemberPhotoUrl(selectedPath)} alt="Preview" className="photo-preview" />
             )}
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="save-btn" disabled={photoLoading}>
-              {photoLoading ? 'Loading photo…' : 'Save Member'}
-            </button>
+            <button type="submit" className="save-btn">Save Member</button>
             <button type="button" onClick={onCancel} className="cancel-btn">Cancel</button>
           </div>
         </form>

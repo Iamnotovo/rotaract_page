@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ProjectForm from '../components/ProjectForm'
 import MemberForm from '../components/MemberForm'
 import LinkForm from '../components/LinkForm'
-import { getMemberPhotoUrl } from '../utils/memberPhoto'
+import { getMemberPhotoUrl, getProjectPhotoUrl } from '../utils/memberPhoto'
+import { loadSiteData, exportSiteData } from '../utils/siteData'
 import './AdminDashboard.css'
 
 function AdminDashboard({ onLogout }) {
@@ -19,26 +20,15 @@ function AdminDashboard({ onLogout }) {
   const [showLinkForm, setShowLinkForm] = useState(false)
 
   useEffect(() => {
-    loadData()
+    loadSiteData().then((data) => {
+      if (data.projects) setProjects(data.projects)
+      if (data.members) {
+        setMembers(data.members.map((m, i) => ({ ...m, id: m.id ?? `m${Date.now()}-${i}`, order: m.order ?? i })))
+      }
+      if (data.directionSlots) setDirectionSlots(data.directionSlots)
+      if (data.usefulLinks) setLinks(data.usefulLinks)
+    })
   }, [])
-
-  const loadData = () => {
-    const savedProjects = localStorage.getItem('projects')
-    const savedMembers = localStorage.getItem('members')
-    const savedDirection = localStorage.getItem('directionSlots')
-    const savedLinks = localStorage.getItem('usefulLinks')
-    
-    if (savedProjects) setProjects(JSON.parse(savedProjects))
-    if (savedMembers) {
-      const list = JSON.parse(savedMembers)
-      setMembers(list.map((m, i) => ({ ...m, id: m.id ?? `m${Date.now()}-${i}`, order: m.order ?? i })))
-    }
-    if (savedDirection) {
-      const raw = JSON.parse(savedDirection)
-      setDirectionSlots(Array.isArray(raw) && raw.length >= 5 ? raw.slice(0, 5) : [null, null, null, null, null])
-    }
-    if (savedLinks) setLinks(JSON.parse(savedLinks))
-  }
 
   const handleProjectSave = (projectData) => {
     const updated = [...projects]
@@ -139,7 +129,17 @@ function AdminDashboard({ onLogout }) {
     <div className="admin-dashboard">
       <div className="admin-header">
         <h1>Admin Dashboard</h1>
-        <button onClick={onLogout} className="logout-btn">Logout</button>
+        <div className="admin-header-actions">
+          <button
+            type="button"
+            onClick={() => exportSiteData({ projects, members, directionSlots, usefulLinks: links })}
+            className="export-data-btn"
+            title="Download site-data.json to put in public/ for permanent storage"
+          >
+            Export site data
+          </button>
+          <button onClick={onLogout} className="logout-btn">Logout</button>
+        </div>
       </div>
 
       <div className="admin-tabs">
@@ -184,7 +184,7 @@ function AdminDashboard({ onLogout }) {
           <div className="items-list">
             {projects.map((project, index) => (
               <div key={index} className="item-card">
-                <img src={project.mainPhoto || ''} alt={project.title || 'Project'} className="item-thumb" />
+                <img src={getProjectPhotoUrl(project.mainPhoto || '')} alt={project.title || 'Project'} className="item-thumb" />
                 <div className="item-info">
                   <h3>{project.title || 'Untitled project'}</h3>
                   <p>{(project.description || '').substring(0, 100)}{(project.description || '').length > 100 ? '...' : ''}</p>

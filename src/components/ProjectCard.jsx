@@ -1,4 +1,5 @@
 import React from 'react'
+import { getProjectPhotoUrl } from '../utils/memberPhoto'
 import './ProjectCard.css'
 
 function ProjectCard({ project, onClick }) {
@@ -7,7 +8,7 @@ function ProjectCard({ project, onClick }) {
   const mainPhoto = project.mainPhoto || ''
   return (
     <div className="project-card" onClick={onClick}>
-      {mainPhoto && <img src={mainPhoto} alt={title} className="project-card-image" />}
+      {mainPhoto && <img src={getProjectPhotoUrl(mainPhoto)} alt={title} className="project-card-image" />}
       <div className="project-card-content">
         <h3>{title}</h3>
         <p>{description.substring(0, 150)}{description.length > 150 ? '...' : ''}</p>

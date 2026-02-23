@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { loadSiteData } from '../utils/siteData'
 import './UsefulLinks.css'
 
 function UsefulLinks() {
   const [links, setLinks] = useState([])
 
   useEffect(() => {
-    const saved = localStorage.getItem('usefulLinks')
-    if (saved) {
-      setLinks(JSON.parse(saved))
-    }
+    let cancelled = false
+    loadSiteData().then((data) => {
+      if (!cancelled && data.usefulLinks) setLinks(data.usefulLinks)
+    })
+    return () => { cancelled = true }
   }, [])
 
   return (

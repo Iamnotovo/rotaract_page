@@ -1,9 +1,9 @@
 /**
- * Returns the URL to use for a member photo.
+ * Returns the URL to use for an asset (member photo, project photo, etc.).
  * - data: or http(s): URLs are used as-is.
- * - Otherwise treated as path under public (e.g. "members/nico.jpg") and prefixed with base.
+ * - Otherwise treated as path under public (e.g. "members/nico.jpg", "projects/myproj/photo.jpg") and prefixed with base.
  */
-export function getMemberPhotoUrl(photo) {
+export function getAssetUrl(photo) {
   if (!photo) return ''
   if (photo.startsWith('data:') || photo.startsWith('http://') || photo.startsWith('https://')) {
     return photo
@@ -13,4 +13,12 @@ export function getMemberPhotoUrl(photo) {
     : './'
   const path = photo.startsWith('/') ? photo.slice(1) : photo
   return `${base}${path}`
+}
+
+export function getMemberPhotoUrl(photo) {
+  return getAssetUrl(photo)
+}
+
+export function getProjectPhotoUrl(photo) {
+  return getAssetUrl(photo)
 }
