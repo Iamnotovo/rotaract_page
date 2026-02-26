@@ -8,7 +8,14 @@ function ProjectCard({ project, onClick }) {
   const mainPhoto = project.mainPhoto || ''
   return (
     <div className="project-card" onClick={onClick}>
-      {mainPhoto && <img src={getProjectPhotoUrl(mainPhoto)} alt={title} className="project-card-image" />}
+      {mainPhoto && (
+        <img
+          src={getProjectPhotoUrl(mainPhoto)}
+          alt={title}
+          className="project-card-image"
+          style={{ objectPosition: project.mainPhotoPosition || 'center center' }}
+        />
+      )}
       <div className="project-card-content">
         <h3>{title}</h3>
         <p>{description.substring(0, 150)}{description.length > 150 ? '...' : ''}</p>

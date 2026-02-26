@@ -11,6 +11,7 @@ function ProjectForm({ project, onSave, onCancel }) {
     title: '',
     description: '',
     mainPhoto: '',
+    mainPhotoPosition: 'center center',
     whatDone: '',
     whatLearned: '',
     photos: []
@@ -19,27 +20,38 @@ function ProjectForm({ project, onSave, onCancel }) {
   const [selectedFolder, setSelectedFolder] = useState('')
 
   useEffect(() => {
+    fetch(`${BASE}projects/projects-photos.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error('Not found'))))
+      .then((list) => {
+        if (Array.isArray(list)) {
+          setProjectFolders(list)
+          setSelectedFolder((prev) => (prev || (list.length > 0 ? list[0].project : '')))
+        }
+      })
+      .catch(() => setProjectFolders([]))
+  }, [])
+
+  useEffect(() => {
     if (project) {
+      const mainPhoto = normalizeProjectPath(project.mainPhoto)
+      const photos = Array.isArray(project.photos) ? project.photos.map(normalizeProjectPath) : []
       setFormData({
         title: project.title || '',
         description: project.description || '',
-        mainPhoto: project.mainPhoto || '',
+        mainPhoto,
+        mainPhotoPosition: project.mainPhotoPosition || 'center center',
         whatDone: project.whatDone || '',
         whatLearned: project.whatLearned || '',
-        photos: project.photos || []
+        photos
       })
-      const candidatePath =
-        project.mainPhoto ||
-        (Array.isArray(project.photos) && project.photos.length > 0 ? project.photos[0] : '')
-      const fromExisting = extractFolderFromPath(candidatePath)
-      if (fromExisting) {
-        setSelectedFolder(fromExisting)
-      }
+      const folder = extractFolderFromPath(mainPhoto || (photos[0] || ''))
+      if (folder) setSelectedFolder(folder)
     } else {
       setFormData({
         title: '',
         description: '',
         mainPhoto: '',
+        mainPhotoPosition: 'center center',
         whatDone: '',
         whatLearned: '',
         photos: []
@@ -48,29 +60,22 @@ function ProjectForm({ project, onSave, onCancel }) {
     }
   }, [project])
 
-  useEffect(() => {
-    fetch(`${BASE}projects/projects-photos.json`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error('Not found'))))
-      .then((list) => {
-        if (Array.isArray(list)) {
-          setProjectFolders(list)
-          if (!selectedFolder && list.length > 0) {
-            setSelectedFolder(list[0].project)
-          }
-        }
-      })
-      .catch(() => {
-        setProjectFolders([])
-      })
-  }, [selectedFolder])
-
-  const extractFolderFromPath = (path) => {
+  function normalizeProjectPath(path) {
     if (!path) return ''
-    const parts = path.split('/')
-    const idx = parts.indexOf('projects')
-    if (idx !== -1 && parts.length > idx + 1) {
-      return parts[idx + 1]
+    const s = String(path).trim().replace(/^\.\//, '')
+    const match = s.match(/(?:^|\/)projects\/[^?#]+/)
+    if (match) {
+      const start = s.indexOf('projects/')
+      return s.slice(start)
     }
+    return s
+  }
+
+  function extractFolderFromPath(path) {
+    if (!path) return ''
+    const parts = String(path).split('/')
+    const idx = parts.indexOf('projects')
+    if (idx !== -1 && parts.length > idx + 1) return parts[idx + 1]
     return ''
   }
 
@@ -183,8 +188,28 @@ function ProjectForm({ project, onSave, onCancel }) {
               ))}
             </select>
             {formData.mainPhoto && (
-              <img src={getProjectPhotoUrl(formData.mainPhoto)} alt="Preview" className="photo-preview" />
+              <img
+                src={getProjectPhotoUrl(formData.mainPhoto)}
+                alt="Preview"
+                className="photo-preview"
+                style={{ objectPosition: formData.mainPhotoPosition }}
+              />
             )}
+          </div>
+
+          <div className="form-group">
+            <label>Show more of the photo (crop focus):</label>
+            <select
+              name="mainPhotoPosition"
+              value={formData.mainPhotoPosition}
+              onChange={handleChange}
+              className="photo-select"
+            >
+              <option value="center top">Top</option>
+              <option value="center center">Center</option>
+              <option value="center bottom">Bottom</option>
+            </select>
+            <p className="photo-hint">Choose which part of the image is visible when it’s cropped to fit.</p>
           </div>
 
           <div className="form-group">

@@ -1,9 +1,7 @@
 .header {
     background: #f7f7f7;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: relative;
 }
 
 .logo-container {
@@ -28,6 +26,9 @@
     padding: 12px 24px;
     background: #d4d4d4;
     border-top: 1px solid #c8c8c8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-links {
