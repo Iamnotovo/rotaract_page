@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "sync-members": "node scripts/sync-members.js",
-    "predev": "npm run sync-members",
-    "prebuild": "npm run sync-members",
+    "sync-projects": "node scripts/sync-projects.js",
+    "predev": "npm run sync-members && npm run sync-projects",
+    "prebuild": "npm run sync-members && npm run sync-projects",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
