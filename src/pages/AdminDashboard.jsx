@@ -40,7 +40,6 @@ function AdminDashboard({ onLogout }) {
       updated.push(data)
     }
     setProjects(updated)
-    localStorage.setItem('projects', JSON.stringify(updated))
     setShowProjectForm(false)
     setEditingProject(null)
   }
@@ -50,14 +49,12 @@ function AdminDashboard({ onLogout }) {
       i === index ? { ...p, pinned: !(p.pinned ?? false) } : p
     )
     setProjects(updated)
-    localStorage.setItem('projects', JSON.stringify(updated))
   }
 
   const handleProjectDelete = (index) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       const updated = projects.filter((_, i) => i !== index)
       setProjects(updated)
-      localStorage.setItem('projects', JSON.stringify(updated))
     }
   }
 
