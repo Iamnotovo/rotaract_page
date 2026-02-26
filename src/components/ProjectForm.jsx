@@ -11,7 +11,6 @@ function ProjectForm({ project, onSave, onCancel }) {
     title: '',
     description: '',
     mainPhoto: '',
-    mainPhotoPosition: 'center center',
     whatDone: '',
     whatLearned: '',
     photos: []
@@ -25,7 +24,6 @@ function ProjectForm({ project, onSave, onCancel }) {
         title: project.title || '',
         description: project.description || '',
         mainPhoto: project.mainPhoto || '',
-        mainPhotoPosition: project.mainPhotoPosition || 'center center',
         whatDone: project.whatDone || '',
         whatLearned: project.whatLearned || '',
         photos: project.photos || []
@@ -42,7 +40,6 @@ function ProjectForm({ project, onSave, onCancel }) {
         title: '',
         description: '',
         mainPhoto: '',
-        mainPhotoPosition: 'center center',
         whatDone: '',
         whatLearned: '',
         photos: []
@@ -98,15 +95,6 @@ function ProjectForm({ project, onSave, onCancel }) {
     setFormData((prev) => ({
       ...prev,
       mainPhoto: e.target.value
-    }))
-  }
-
-  const handleMainPhotoPositionChange = (e) => {
-    const value = Number(e.target.value)
-    const clamped = Number.isNaN(value) ? 50 : Math.min(100, Math.max(0, value))
-    setFormData((prev) => ({
-      ...prev,
-      mainPhotoPosition: `50% ${clamped}%`
     }))
   }
 
@@ -195,29 +183,7 @@ function ProjectForm({ project, onSave, onCancel }) {
               ))}
             </select>
             {formData.mainPhoto && (
-              <>
-                <img
-                  src={getProjectPhotoUrl(formData.mainPhoto)}
-                  alt="Preview"
-                  className="photo-preview"
-                  style={{ objectPosition: formData.mainPhotoPosition }}
-                />
-                <label className="photo-focus-label">
-                  Adjust how the main photo is cropped:
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    defaultValue={50}
-                    onChange={handleMainPhotoPositionChange}
-                  />
-                  <div className="photo-focus-scale">
-                    <span>Show more top</span>
-                    <span>Center</span>
-                    <span>Show more bottom</span>
-                  </div>
-                </label>
-              </>
+              <img src={getProjectPhotoUrl(formData.mainPhoto)} alt="Preview" className="photo-preview" />
             )}
           </div>
 
