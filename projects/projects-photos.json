@@ -5,5 +5,12 @@
     "files": [
       "stjordi.png"
     ]
+  },
+  {
+    "project": "tanger",
+    "path": "projects/tanger",
+    "files": [
+      "tanger.JPG"
+    ]
   }
 ]
