@@ -1,0 +1,120 @@
+{
+  "projects": [
+    {
+      "title": "Selling roses in Sant Jordi",
+      "description": "To celebrate Sant Jordi, our club organized a charity stall at the bustling corner of Balmes and Diagonal. This year, our \"Day of the Rose and the Book\" had a specific mission: supporting the Asociación TRIQ. All proceeds from our sales were dedicated to this organization, which provides essential support, resources, and empowerment to single mothers in Tangier, Morocco. By blending our local Catalan traditions with international solidarity, we aimed to turn every rose sold into a gesture of support for women in need.",
+      "mainPhoto": "projects/stjordi/stjordi.png",
+      "whatDone": "The day was a masterclass in Rotary Fellowship and cross-border collaboration:\n\nA United Front: We worked hand-in-hand with our Inbound students, whose diverse backgrounds mirrored the international nature of our fundraising goal.\n\nFundraising & Awareness: We sold roses and handcrafted bookmarks, taking the opportunity to educate passersby about the challenges faced by single mothers in Tangier and the vital work Asociación TRIQ does to help them.\n\nRotary Support: We were thrilled to welcome many Rotarians who visited the stand, demonstrating the strength of the Rotary family through their solidarity and generous contributions.",
+      "whatLearned": "This project reminded us that Service Above Self knows no borders. By sending the funds to Tangier, we learned:\n\nThe Power of Purpose: Having a clear, impactful cause like Asociación TRIQ significantly increased community engagement; people weren't just buying a rose, they were contributing to a mother's future.\n\nInternational Connection: Working with Inbounds while supporting a project in Morocco reinforced our identity as global citizens. It showed us how a local club in Barcelona can create a ripple effect of positive change across the Mediterranean.\n\nThe Strength of Collaboration: Bringing together youth, experienced Rotarians, and international students creates a unique synergy that makes even the busiest day of the year run smoothly and successfully.",
+      "photos": [],
+      "pinned": true
+    },
+    {
+      "title": "Trip to Tangier with Triq association",
+      "description": "Following our successful Sant Jordi fundraiser, a delegation from our club traveled to Tangier, Morocco, to work directly with Asociación TRIQ. Our goal was to bridge the gap between our fundraising in Barcelona and the real-world impact on the ground. This international service mission allowed us to witness firsthand the challenges faced by single mothers and vulnerable children in Tangier, providing hands-on support through employment initiatives, childcare assistance, and educational outreach.",
+      "mainPhoto": "projects/tanger/tanger.JPG",
+      "whatDone": "Our time in Tangier was a whirlwind of service and solidarity:\n\nSupporting Asociación TRIQ: Our large team assisted in preparing essential food parcels for mothers in the program. We also organized a \"community party\" for the women and their children—a rare opportunity for them to enjoy a day of \"normal\" life, filled with games, music, and laughter.\n\nSchool Outreach: We visited a local school that serves orphans and children from low-income families. We led a series of interactive activities and workshops, bringing a bit of extra joy and mentorship to their school day.\n\nBearing Witness: We had the privilege of listening to the firsthand testimony of one of the mothers. Her story was incredibly harsh and difficult to hear, but it was a necessary reminder of why our work is so urgent.\n\nCultural Immersion: Between our service projects, we explored the vibrant streets of Tangier, strengthening our bonds as a club and deepening our appreciation for Moroccan culture.",
+      "whatLearned": "This trip was a profound lesson in International Service and human resilience. By stepping out of our comfort zone, we realized:\n\nDignity through Opportunity: We saw that providing a mother with a job or a little help with her kids doesn't just change her week—it changes her entire life's trajectory.\n\nThe Power of Presence: While the funds we raised back home were vital, being physically present to run school activities and host a party showed us that Rotaract values are as much about emotional connection and \"being there\" as they are about financial aid.\n\nGlobal Perspective: Hearing such a difficult personal story was a reality check. It taught us that as global citizens, we must listen to these uncomfortable truths to truly understand how to serve. We left Tangier with a much deeper understanding of the massive impact a small amount of help can have on a family's future.",
+      "photos": [],
+      "pinned": true
+    },
+    {
+      "title": "The Gran Recapte (Great Food Drive)",
+      "description": "Our club participated in the Gran Recapte d'Aliments, a massive regional food drive aimed at supporting individuals in vulnerable situations. This project is a cornerstone of our local service efforts, focusing on the fundamental Rotaract value of community development and fighting food insecurity right here in our city.",
+      "mainPhoto": "projects/granrecapte/gr.png",
+      "whatDone": "On-the-Ground Volunteering: We staffed collection points, engaging with the public to explain the importance of the campaign.\n\n\nLogistics & Classification: Beyond just collecting, our members spent hours classifying and organizing donated products to ensure they could be distributed efficiently by the Food Bank.\n\n\nPublic Awareness: We acted as ambassadors for the cause, encouraging citizens to contribute to this essential social safety net.",
+      "whatLearned": "Participating in the Gran Recapte taught us the value of direct community impact. It was a gratifying experience that allowed us to see firsthand the generosity of our neighbors. We learned that even small individual donations, when coordinated through a large-scale initiative, can provide essential relief to thousands",
+      "photos": [],
+      "pinned": false
+    },
+    {
+      "title": "International Cultural Box Exchange",
+      "description": "To strengthen our International Service and global fellowship, we participated in a \"Cultural Box\" exchange with the Karşıyaka Rotaract Club from Turkey. This project allowed us to build a bridge between Barcelona and Izmir, celebrating the diversity that defines the international Rotaract movement.",
+      "mainPhoto": "projects/culturalbox/culturalbox.png",
+      "whatDone": "Cultural Exchange: We received a specially curated box containing traditional Turkish products, gastronomy, and information about their local customs.\n\n\nBuilding Partnerships: This exchange opened a direct line of communication with a club in another country, fostering a sense of global fellowship.\n\n\nGastronomic Discovery: We used the contents of the box to learn about and appreciate the unique traditions of our Turkish counterparts.",
+      "whatLearned": "This initiative reminded us that Rotaract provides a unique platform for international understanding and peace. We learned that despite geographical distances, our clubs share the same values and enthusiasm for service. It reinforced our identity as global citizens and the importance of maintaining international bonds to enrich our own club's perspective.",
+      "photos": [],
+      "pinned": false
+    }
+  ],
+  "members": [
+    {
+      "name": "Nicolas Balzamo",
+      "role": "Vice President",
+      "photo": "members/nico.JPG",
+      "id": "m1771878730344",
+      "order": 0
+    },
+    {
+      "name": "Ana Pallares Rodriguez ",
+      "role": "Member",
+      "photo": "members/ana.jpeg",
+      "id": "m1771922721469",
+      "order": 1
+    },
+    {
+      "name": "Andrea Anguita",
+      "role": "President",
+      "photo": "members/andrea.png",
+      "id": "m1771922756107",
+      "order": 2
+    },
+    {
+      "name": "Bruno Miralles",
+      "role": "Treasurer",
+      "photo": "members/Bruno.jpeg",
+      "id": "m1771922950241",
+      "order": 3
+    },
+    {
+      "name": "Eros Leonel",
+      "role": "Member",
+      "photo": "members/eros.jpeg",
+      "id": "m1771922999502",
+      "order": 4
+    },
+    {
+      "name": "Tomas Masucci ",
+      "role": "Secretary",
+      "photo": "members/tomas.jpeg",
+      "id": "m1771923044864",
+      "order": 5
+    },
+    {
+      "name": "Pol Anguita",
+      "role": "Member",
+      "photo": "members/pol.png",
+      "id": "m1771923067159",
+      "order": 6
+    },
+    {
+      "name": "Jan Estrada",
+      "role": "Member",
+      "photo": "members/jan.jpeg",
+      "id": "m1771923096694",
+      "order": 7
+    },
+    {
+      "name": "Noa Estrada",
+      "role": "",
+      "photo": "members/noa.jpeg",
+      "id": "m1771923944928",
+      "order": 8
+    },
+    {
+      "name": "Bruna Garcia",
+      "role": "Member",
+      "photo": "members/bruna.jpeg",
+      "id": "m1772096690794",
+      "order": 9
+    }
+  ],
+  "directionSlots": [
+    "m1771922756107",
+    "m1771878730344",
+    "m1771923044864",
+    "m1771922950241",
+    null
+  ],
+  "usefulLinks": []
+}
