@@ -12,7 +12,12 @@ function ProjectDetail({ project, onClose }) {
           
           {project.mainPhoto && (
             <div className="project-detail-main">
-              <img src={getProjectPhotoUrl(project.mainPhoto)} alt={project.title || 'Project'} className="project-detail-main-image" />
+              <img
+                src={getProjectPhotoUrl(project.mainPhoto)}
+                alt={project.title || 'Project'}
+                className="project-detail-main-image"
+                style={{ objectPosition: project.mainPhotoPosition || 'center center' }}
+              />
             </div>
           )}
           

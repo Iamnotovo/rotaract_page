@@ -6,9 +6,17 @@ function ProjectCard({ project, onClick }) {
   const title = project.title || 'Untitled project'
   const description = project.description || ''
   const mainPhoto = project.mainPhoto || ''
+  const mainPhotoPosition = project.mainPhotoPosition || 'center center'
   return (
     <div className="project-card" onClick={onClick}>
-      {mainPhoto && <img src={getProjectPhotoUrl(mainPhoto)} alt={title} className="project-card-image" />}
+      {mainPhoto && (
+        <img
+          src={getProjectPhotoUrl(mainPhoto)}
+          alt={title}
+          className="project-card-image"
+          style={{ objectPosition: mainPhotoPosition }}
+        />
+      )}
       <div className="project-card-content">
         <h3>{title}</h3>
         <p>{description.substring(0, 150)}{description.length > 150 ? '...' : ''}</p>
