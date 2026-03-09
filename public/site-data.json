@@ -108,6 +108,20 @@
       "photo": "members/bruna.jpeg",
       "id": "m1772096690794",
       "order": 9
+    },
+    {
+      "name": "Celia Garcia",
+      "role": "Member",
+      "photo": "members/celia.jpeg",
+      "id": "m1773087479359",
+      "order": 10
+    },
+    {
+      "name": "Nina Pesaresi",
+      "role": "Member",
+      "photo": "members/nina.jpeg",
+      "id": "m1773087515241",
+      "order": 11
     }
   ],
   "directionSlots": [
