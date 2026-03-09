@@ -97,7 +97,7 @@
     },
     {
       "name": "Noa Estrada",
-      "role": "",
+      "role": "Social Networks Manager",
       "photo": "members/noa.jpeg",
       "id": "m1771923944928",
       "order": 8
@@ -122,6 +122,20 @@
       "photo": "members/nina.jpeg",
       "id": "m1773087515241",
       "order": 11
+    },
+    {
+      "name": "Biel Gibert",
+      "role": "Member",
+      "photo": "members/biel.jpeg",
+      "id": "m1773088321879",
+      "order": 12
+    },
+    {
+      "name": "Louis Guisset",
+      "role": "Member",
+      "photo": "members/louis.jpg",
+      "id": "m1773088349514",
+      "order": 13
     }
   ],
   "directionSlots": [
@@ -129,7 +143,7 @@
     "m1771878730344",
     "m1771923044864",
     "m1771922950241",
-    null
+    "m1771923944928"
   ],
   "usefulLinks": []
 }
