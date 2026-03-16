@@ -61,7 +61,7 @@ function Header({ onMenuClick, currentSection, onNavigate, isAdminLoggedIn }) {
             )}
           </div>
           <button
-            className={`nav-link ${currentSection === 'admin-login' || currentSection === 'admin-dashboard' ? 'active' : ''}`}
+            className="nav-link nav-link-admin"
             onClick={() => handleNav(isAdminLoggedIn ? 'admin-dashboard' : 'admin-login')}
           >
             {isAdminLoggedIn ? 'Admin' : 'Login'}

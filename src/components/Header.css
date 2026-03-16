@@ -109,3 +109,16 @@
 .nav-dropdown-menu button:hover {
     background: rgba(194, 24, 91, 0.1);
 }
+
+/* Admin/Login button: same as nav bar, no hover/active change */
+.nav-link-admin {
+    background: #d4d4d4;
+    color: #6b6b6b;
+}
+
+.nav-link-admin:hover,
+.nav-link-admin:active,
+.nav-link-admin.active {
+    background: #d4d4d4;
+    color: #6b6b6b;
+}
