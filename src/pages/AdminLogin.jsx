@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { verifyPassword, getAdminUsername } from '../utils/auth'
+import { useI18n } from '../i18n/LanguageContext'
 import './AdminLogin.css'
 
 function AdminLogin({ onLogin, navigateTo }) {
+  const { t } = useI18n()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -18,10 +20,10 @@ function AdminLogin({ onLogin, navigateTo }) {
         onLogin()
         navigateTo('admin-dashboard')
       } else {
-        setError('Invalid username or password')
+        setError(t('loginPage.invalidCredentials'))
       }
     } catch {
-      setError('Something went wrong. Please try again.')
+      setError(t('loginPage.genericError'))
     } finally {
       setLoading(false)
     }
@@ -30,12 +32,12 @@ function AdminLogin({ onLogin, navigateTo }) {
   return (
     <div className="login-page">
       <div className="login-container">
-        <h1>Admin Login</h1>
+        <h1>{t('loginPage.title')}</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
               type="text"
-              placeholder="Username"
+              placeholder={t('loginPage.usernamePlaceholder')}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -45,7 +47,7 @@ function AdminLogin({ onLogin, navigateTo }) {
           <div className="form-group">
             <input
               type="password"
-              placeholder="Password"
+              placeholder={t('loginPage.passwordPlaceholder')}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -54,7 +56,7 @@ function AdminLogin({ onLogin, navigateTo }) {
           </div>
           {error && <p className="error-message">{error}</p>}
           <button type="submit" className="login-btn" disabled={loading}>
-            {loading ? 'Checking…' : 'Login'}
+            {loading ? t('loginPage.checking') : t('loginPage.submit')}
           </button>
         </form>
       </div>

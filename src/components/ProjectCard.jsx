@@ -1,9 +1,11 @@
 import React from 'react'
 import { getProjectPhotoUrl } from '../utils/memberPhoto'
+import { useI18n } from '../i18n/LanguageContext'
 import './ProjectCard.css'
 
 function ProjectCard({ project, onClick }) {
-  const title = project.title || 'Untitled project'
+  const { t } = useI18n()
+  const title = project.title || t('projectsPage.untitled')
   const description = project.description || ''
   const mainPhoto = project.mainPhoto || ''
   return (

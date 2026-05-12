@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "title": "Rotaract Club de Barcelona Diagonal",
+    "logoAlt": "Logotipo del Rotaract Club de Barcelona Diagonal"
+  },
+  "langSwitcher": {
+    "label": "Idioma",
+    "en": "English",
+    "es": "Español",
+    "ca": "Català"
+  },
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "theClub": "El club",
+    "aboutUs": "Quiénes somos",
+    "meetings": "Reuniones",
+    "usefulLinks": "Enlaces útiles",
+    "members": "Miembros",
+    "admin": "Admin",
+    "login": "Acceder"
+  },
+  "footer": {
+    "copyright": "© {{year}} Rotaract Club de Barcelona Diagonal"
+  },
+  "home": {
+    "heroKicker": "Servicio · Liderazgo · Compañerismo",
+    "heroHeadline": "Rotaract Club Barcelona Diagonal",
+    "heroSub": "Descubre nuestros proyectos, conoce al club y aprende cómo puedes participar.",
+    "exploreProjects": "Ver proyectos",
+    "aboutUsCta": "Quiénes somos",
+    "title": "Club Barcelona Diagonal",
+    "lead": "Los clubes Rotaract reúnen a personas a partir de 18 años para intercambiar ideas con líderes del entorno, desarrollar competencias profesionales y de liderazgo y divertirse a través del servicio. Los socios deciden cómo organizar y hacer funcionar el club, gestionar sus fondos y planificar actividades y proyectos solidarios: pertenecer al club es una excelente forma de hacer voluntariado, crecer a nivel personal y tejer una red de amistades, cercana y global.",
+    "exploreHeading": "Explora el club",
+    "exploreLead": "Salta directamente a lo que más visita la gente: primero proyectos y, después, todo lo que necesitas saber sobre quiénes somos y cómo unirte.",
+    "exploreOpen": "Abrir",
+    "exploreInstagram": "Abrir Instagram",
+    "cards": {
+      "projects": {
+        "title": "Proyectos",
+        "tagline": "Impacto en acción",
+        "description": "Desde iniciativas locales hasta colaboraciones internacionales: mira lo que hemos construido juntos."
+      },
+      "about": {
+        "title": "Quiénes somos",
+        "tagline": "Nuestra identidad",
+        "description": "Nuestra historia, nuestros valores y lo que representa Rotaract Barcelona Diagonal."
+      },
+      "members": {
+        "title": "Miembros",
+        "tagline": "Junta directiva",
+        "description": "Da la bienvenida a quien impulsa reuniones, proyectos y la vida del club."
+      },
+      "meetings": {
+        "title": "Reuniones",
+        "tagline": "Ven a conocernos",
+        "description": "Cuándo y dónde nos vemos — y cómo acercarte como invitado."
+      },
+      "links": {
+        "title": "Enlaces útiles",
+        "tagline": "Mantén el contacto",
+        "description": "Instagram, materiales Rotary y herramientas que usamos en el club."
+      },
+      "contact": {
+        "tagline": "Saluda",
+        "title": "Contacto",
+        "description": "Escríbenos por Instagram: es donde hablamos con la gente que nos descubre y respondemos sobre cómo federarse."
+      }
+    },
+    "joinHeading": "¿Puedo unirme a Rotaract?",
+    "joinBodyBefore": "¡Por supuesto! Siempre hay hueco para nuevas personas. Mándanos un mensaje en ",
+    "joinBodyAfter": " y te iremos guiando. A las personas candidatas les pedimos que conozcan al club y asistan a las reuniones durante un periodo de tres meses; transcurrido este tiempo, puede concederse la plena condición de miembro mediante una votación por mayoría.",
+    "contactHeading": "Contacto",
+    "contactLeadBefore": "Lo ponemos claro y sencillo: escríbenos por ",
+    "contactLeadStrong": "mensaje directo de Instagram",
+    "contactLeadAfter": ". Cuéntanos quién eres y qué te interesa — sociedad, visitar una reunión o colaborar — y te contestamos allí mismo.",
+    "instagramCta": "Escríbenos en Instagram"
+  },
+  "about": {
+    "pageTitle": "Quiénes somos",
+    "introBefore": "Rotaract Club Barcelona Diagonal es un ",
+    "introEmphasis": "club pequeño con mucha fuerza",
+    "introAfter": ": empezamos casi desde cero, hemos crecido rápido y hoy formamos una peña joven muy viva que se implica en el servicio, en los amigos y en estar donde haga falta.",
+    "originTitle": "Así recuperamos el club",
+    "originP1Before": "En ",
+    "originP1Strong": "abril de 2024",
+    "originP1After": ", cuatro personas dieron el paso cuando el club había sido cerrado por inactividad. Rotary nos invitó a reabrir Barcelona Diagonal —no como una institución cerrada, sino como una página en blanco que podíamos llenar juntos.",
+    "originP2": "Ese comienzo recortado marca nuestra manera de ser: hemos aprendido haciendo, nos hemos agarrado unos a otros y demostramos que el compromiso gana al perfeccionismo cuando se trata de servir tu ciudad y tu red.",
+    "growthTitle": "De cuatro fundadores a unas veinte personas",
+    "growthLeadBefore": "Arrancamos siendo ",
+    "growthLeadStrongFour": "4 personas",
+    "growthLeadMid": " con mandato para reactivar el club. Hoy somos ",
+    "growthLeadStrongTwenty": "unos 20 socios muy activos",
+    "growthLeadAfter": ", y seguimos creciendo.",
+    "growthP2": "Con cada incorporación nueva llegan idiomas, talentos y miradas diferentes. Ya te gusten la logística, la comunicación, la parte creativa o simplemente echar una mano el día del proyecto, hay sitio.",
+    "spiritTitle": "Cómo somos",
+    "handsOnLabel": "Muy prácticos",
+    "handsOnText": "Nos implicamos en lo que sea: campañas en el territorio, intercambios internacionales, recaudaciones y colaboraciones puntuales cuando surge la ocasión.",
+    "welcomingLabel": "Ambiente acogedor",
+    "welcomingText": "El tono es deliberadamente informal: se pueden hacer mil preguntas, equívocos sin drama, y el acompañamiento circula entre distintos perfiles; no llega solo de la junta.",
+    "heartLabel": "Rotaract en el centro",
+    "heartText": "Nos mantenemos fieles al espíritu Rotary —compañerismo, ética y Servicio desinteresado— con reuniones muy vivas donde mandan proyectos concretos.",
+    "thanksTitle": "Gracias de corazón",
+    "thanksP1Before": "Queremos agradecer de forma muy especial al ",
+    "thanksP1Club": "Rotary Club Barcelona Diagonal",
+    "thanksP1After": ", cuyo patrocinio permite que continuemos como club Rotaract y sigamos sumando iniciativas.",
+    "thanksP2Before": "También agradecemos al ",
+    "thanksP2Club": "Rotary Club Milenium",
+    "thanksP2After": ", que tantas veces ha estado cuando lo hemos necesitado.",
+    "visitTitle": "Ven a saludar",
+    "visitLeadBefore": "Para una primera vez basta la curiosidad. Os esperamos cada ",
+    "visitStrongWhen": "lunes, de 20:30 a 21:30",
+    "visitMidAt": ", en ",
+    "visitStrongWhere": "carrer de Bruc 147, 3.º D, 2.ª",
+    "visitOutroBefore": ". Si necesitas ponerte en contacto antes de venir, escríbenos por ",
+    "visitInstagramLink": "Instagram",
+    "visitOutroAfter": ": suele ser el canal donde respondemos."
+  },
+  "meetings": {
+    "pageTitle": "Reuniones",
+    "lead": "Nos encontramos todas las semanas para preparar proyectos, contar cómo van las cosas y recibir visitas. Acércate: quien llega de fuera encuentra puertas abiertas.",
+    "whenTitle": "Cuándo nos encontramos",
+    "dayLabel": "Día",
+    "dayValue": "Todos los lunes",
+    "timeLabel": "Hora",
+    "whereTitle": "En qué sitio nos vemos",
+    "addressNoteBefore": "El marcador señala el edificio en el carrer de Bruc; al llegar, llama en el ",
+    "addressNoteAfter": " o confirma con quien llegue desde el club el timbre adecuado.",
+    "mapIframeTitle": "Mapa: Carrer de Bruc 147, Barcelona",
+    "openMaps": "Abrir en Google Maps"
+  },
+  "linksPage": {
+    "pageTitle": "Enlaces útiles",
+    "empty": "Todavía no hay enlaces cargados."
+  },
+  "membersPage": {
+    "pageTitle": "Miembros",
+    "directionHeading": "Junta directiva",
+    "membersHeading": "Socios y socias",
+    "slot": "Puesto {{n}}",
+    "noOthers": "Todavía no aparece nadie más en el listado."
+  },
+  "projectsPage": {
+    "pageTitle": "Proyectos",
+    "none": "En este momento no hay proyectos publicados.",
+    "untitled": "Proyecto sin título"
+  },
+  "projectDetail": {
+    "description": "Descripción",
+    "whatDone": "Qué hicimos",
+    "whatLearned": "Aprendizajes",
+    "gallery": "Galería",
+    "photoAlt": "Foto del proyecto {{n}}",
+    "closeAria": "Cerrar",
+    "mapAlt": ""
+  },
+  "loginPage": {
+    "title": "Acceso de administración",
+    "usernamePlaceholder": "Nombre de usuario",
+    "passwordPlaceholder": "Contraseña",
+    "checking": "Comprobando…",
+    "submit": "Entrar",
+    "invalidCredentials": "Usuario o contraseña incorrectos",
+    "genericError": "Algo ha ido mal. Vuelve a intentarlo dentro de un momento."
+  },
+  "admin": {
+    "title": "Tablero de administración",
+    "exportSiteData": "Exportar datos del sitio",
+    "exportTitle": "Descarga site-data.json y colócalo en public/ para hacerlo público en el servidor",
+    "logout": "Cerrar sesión",
+    "tabProjects": "Proyectos",
+    "tabMembers": "Miembros",
+    "tabLinks": "Enlaces útiles",
+    "addProject": "Añadir proyecto",
+    "addMember": "Añadir persona",
+    "addLink": "Añadir enlace",
+    "pin": "Fijar",
+    "unpin": "Desfijar",
+    "pinTooltip": "Mostrar primero",
+    "unpinTooltip": "Ya no destacar",
+    "pinnedBadge": "Destacado",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "noDescription": "Sin descripción corta",
+    "directionHeading": "Junta (cinco puestos)",
+    "slotLabel": "Hueco {{n}}",
+    "directionEmptyOption": "— Libre —",
+    "membersOrderHeading": "Todas las personas (orden)",
+    "confirmDeleteProject": "¿Seguro de que quieres eliminar este proyecto?",
+    "confirmDeleteMember": "¿Seguro de que quieres eliminar a esta persona?",
+    "confirmDeleteLink": "¿Seguro de que quieres eliminar este enlace?"
+  },
+  "projectForm": {
+    "editTitle": "Editar proyecto",
+    "addTitle": "Crear proyecto nuevo",
+    "labelTitle": "Título",
+    "labelDescription": "Breve historia",
+    "labelFolder": "Carpeta del proyecto (desde /projects)",
+    "folderPlaceholder": "— Elige una carpeta —",
+    "folderHintBefore": "Las carpetas y las fotos están en ",
+    "folderHintCodeFolder": "projects/",
+    "folderHintMid": " dentro del repositorio. Ejecuta ",
+    "folderHintCodeCmd": "npm run sync-projects",
+    "folderHintAfter": " cada vez que añadas archivos (o al arrancar el entorno/build).",
+    "labelMainPhoto": "Foto grande",
+    "mainPhotoPlaceholder": "— Elige foto principal —",
+    "labelCrop": "Encuadre al recortar",
+    "cropTop": "Parte alta",
+    "cropCentre": "Centro compositivo",
+    "cropBottom": "Zona inferior",
+    "cropHint": "Elige qué parte de la foto quieres que se mantenga cuando se recorta en la web.",
+    "labelWhatDone": "Qué hicimos",
+    "labelWhatLearned": "Qué aprendimos",
+    "labelGallery": "Más fotos (galería)",
+    "galleryHint": "Mantén pulsado Ctrl (Windows) o ⌘ (macOS) para elegir varias fotos.",
+    "save": "Guardar proyecto",
+    "cancel": "Cancelar",
+    "titlePlaceholder": "Título (opcional)",
+    "descriptionPlaceholder": "Descripción (opcional)"
+  },
+  "memberForm": {
+    "editTitle": "Editar persona",
+    "addTitle": "Añadir persona",
+    "labelName": "Nombre completo elegido",
+    "labelRole": "Cargo interno público",
+    "rolePlaceholder": "Por ejemplo: Presidente, Secretario, Miembro…",
+    "labelPhoto": "Retrato",
+    "photoPlaceholder": "— Elige una foto —",
+    "photosHintBefore": "Los retratos están en ",
+    "photosHintCodeFolder": "members/",
+    "photosHintMid": ". Ponla en disco y ejecuta después ",
+    "photosHintCodeCmd": "npm run sync-members",
+    "photosHintAfter": ".",
+    "syncErrorHint": "Ejecuta npm run sync-members para regenerar la lista desde la carpeta members/.",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "linkForm": {
+    "editTitle": "Editar enlace",
+    "addTitle": "Añadir enlace",
+    "labelTitle": "Título visible",
+    "labelUrl": "URL",
+    "urlPlaceholder": "https://…",
+    "labelDescription": "Descripción",
+    "descriptionPlaceholder": "Breve descripción del enlace",
+    "save": "Guardar enlace",
+    "cancel": "Cancelar"
+  },
+  "memberRoles": {
+    "president": "Presidente",
+    "vicePresident": "Vicepresidente",
+    "treasurer": "Tesorero",
+    "secretary": "Secretario",
+    "member": "Miembro",
+    "socialNetworksManager": "Responsable de redes sociales"
+  }
+}

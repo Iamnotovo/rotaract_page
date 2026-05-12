@@ -9,18 +9,23 @@ import UsefulLinks from './pages/UsefulLinks'
 import Members from './pages/Members'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import { useI18n } from './i18n/LanguageContext'
 import './App.css'
 
-function App() {
+function AppContent() {
+  const { locale, t } = useI18n()
   const [currentSection, setCurrentSection] = useState('home')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false)
 
   useEffect(() => {
+    document.title = t('meta.title')
+  }, [locale, t])
+
+  useEffect(() => {
     const loggedIn = localStorage.getItem('adminLoggedIn') === 'true'
     setIsAdminLoggedIn(loggedIn)
   }, [])
-
   const handleLogin = () => {
     setIsAdminLoggedIn(true)
     localStorage.setItem('adminLoggedIn', 'true')
@@ -86,10 +91,12 @@ function App() {
         {renderContent()}
       </main>
       <footer className="footer">
-        <p>&copy; 2024 Rotaract Club de Barcelona Diagonal</p>
+        <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
       </footer>
     </div>
   )
 }
 
-export default App
+export default function App() {
+  return <AppContent />
+}

@@ -20,11 +20,12 @@
 }
 
 .nav-bar {
+    --nav-bar-bg: #d4d4d4;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background: #d4d4d4;
+    background-color: var(--nav-bar-bg);
     border-top: 1px solid #c8c8c8;
     position: sticky;
     top: 0;
@@ -34,9 +35,44 @@
 .nav-links {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px 16px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.nav-links-main {
+    display: flex;
+    align-items: center;
     justify-content: center;
     gap: 8px;
     flex-wrap: wrap;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.nav-links-trailing {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+@media (max-width: 640px) {
+    .nav-links-main {
+        flex-basis: 100%;
+        justify-content: center;
+    }
+
+    .nav-links-trailing {
+        flex-basis: 100%;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
 }
 
 .nav-link {
@@ -60,6 +96,16 @@
 .nav-link.active {
     background: rgba(194, 24, 91, 0.15);
     color: #a01550;
+}
+
+/* Admin ghost button — invisible, matches nav bar colour */
+.nav-link.nav-link-ghost,
+.nav-link.nav-link-ghost:hover,
+.nav-link.nav-link-ghost:active,
+.nav-link.nav-link-ghost:focus {
+    color: var(--nav-bar-bg);
+    background: transparent;
+    cursor: pointer;
 }
 
 .nav-arrow {
@@ -108,17 +154,4 @@
 
 .nav-dropdown-menu button:hover {
     background: rgba(194, 24, 91, 0.1);
-}
-
-/* Admin/Login button: same as nav bar, no hover/active change */
-.nav-link-admin {
-    background: #d4d4d4;
-    color: #6b6b6b;
-}
-
-.nav-link-admin:hover,
-.nav-link-admin:active,
-.nav-link-admin.active {
-    background: #d4d4d4;
-    color: #6b6b6b;
 }

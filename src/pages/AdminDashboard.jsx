@@ -4,9 +4,11 @@ import MemberForm from '../components/MemberForm'
 import LinkForm from '../components/LinkForm'
 import { getMemberPhotoUrl, getProjectPhotoUrl } from '../utils/memberPhoto'
 import { loadSiteData, exportSiteData } from '../utils/siteData'
+import { useI18n } from '../i18n/LanguageContext'
 import './AdminDashboard.css'
 
 function AdminDashboard({ onLogout }) {
+  const { t } = useI18n()
   const [projects, setProjects] = useState([])
   const [members, setMembers] = useState([])
   const [directionSlots, setDirectionSlots] = useState([null, null, null, null, null])
@@ -33,7 +35,10 @@ function AdminDashboard({ onLogout }) {
   const handleProjectSave = (projectData) => {
     const updated = [...projects]
     const pinned = editingProject !== null ? (projects[editingProject].pinned ?? false) : false
-    const data = { ...projectData, pinned }
+    let data = { ...projectData, pinned }
+    if (editingProject !== null && projects[editingProject]?.i18nKey) {
+      data = { ...data, i18nKey: projects[editingProject].i18nKey }
+    }
     if (editingProject !== null) {
       updated[editingProject] = data
     } else {
@@ -54,7 +59,7 @@ function AdminDashboard({ onLogout }) {
   }
 
   const handleProjectDelete = (index) => {
-    if (window.confirm('Are you sure you want to delete this project?')) {
+    if (window.confirm(t('admin.confirmDeleteProject'))) {
       const updated = projects.filter((_, i) => i !== index)
       setProjects(updated)
       localStorage.setItem('projects', JSON.stringify(updated))
@@ -76,7 +81,7 @@ function AdminDashboard({ onLogout }) {
   }
 
   const handleMemberDelete = (index) => {
-    if (!window.confirm('Are you sure you want to delete this member?')) return
+    if (!window.confirm(t('admin.confirmDeleteMember'))) return
     const id = members[index]?.id
     const updated = members.filter((_, i) => i !== index)
     const newSlots = directionSlots.map((sid) => (sid === id ? null : sid))
@@ -106,10 +111,14 @@ function AdminDashboard({ onLogout }) {
 
   const handleLinkSave = (linkData) => {
     const updated = [...links]
+    let data = { ...linkData }
+    if (editingLink !== null && links[editingLink]?.i18nKey) {
+      data = { ...data, i18nKey: links[editingLink].i18nKey }
+    }
     if (editingLink !== null) {
-      updated[editingLink] = linkData
+      updated[editingLink] = data
     } else {
-      updated.push(linkData)
+      updated.push(data)
     }
     setLinks(updated)
     localStorage.setItem('usefulLinks', JSON.stringify(updated))
@@ -118,7 +127,7 @@ function AdminDashboard({ onLogout }) {
   }
 
   const handleLinkDelete = (index) => {
-    if (window.confirm('Are you sure you want to delete this link?')) {
+    if (window.confirm(t('admin.confirmDeleteLink'))) {
       const updated = links.filter((_, i) => i !== index)
       setLinks(updated)
       localStorage.setItem('usefulLinks', JSON.stringify(updated))
@@ -128,17 +137,17 @@ function AdminDashboard({ onLogout }) {
   return (
     <div className="admin-dashboard">
       <div className="admin-header">
-        <h1>Admin Dashboard</h1>
+        <h1>{t('admin.title')}</h1>
         <div className="admin-header-actions">
           <button
             type="button"
             onClick={() => exportSiteData({ projects, members, directionSlots, usefulLinks: links })}
             className="export-data-btn"
-            title="Download site-data.json to put in public/ for permanent storage"
+            title={t('admin.exportTitle')}
           >
-            Export site data
+            {t('admin.exportSiteData')}
           </button>
-          <button onClick={onLogout} className="logout-btn">Logout</button>
+          <button onClick={onLogout} className="logout-btn">{t('admin.logout')}</button>
         </div>
       </div>
 
@@ -147,26 +156,26 @@ function AdminDashboard({ onLogout }) {
           className={activeTab === 'projects' ? 'active' : ''}
           onClick={() => setActiveTab('projects')}
         >
-          Projects
+          {t('admin.tabProjects')}
         </button>
         <button
           className={activeTab === 'members' ? 'active' : ''}
           onClick={() => setActiveTab('members')}
         >
-          Members
+          {t('admin.tabMembers')}
         </button>
         <button
           className={activeTab === 'links' ? 'active' : ''}
           onClick={() => setActiveTab('links')}
         >
-          Useful Links
+          {t('admin.tabLinks')}
         </button>
       </div>
 
       {activeTab === 'projects' && (
         <div className="admin-section">
           <button onClick={() => { setEditingProject(null); setShowProjectForm(true) }} className="add-btn">
-            Add New Project
+            {t('admin.addProject')}
           </button>
           {showProjectForm && (
             <ProjectForm
@@ -178,21 +187,21 @@ function AdminDashboard({ onLogout }) {
           <div className="items-list">
             {projects.map((project, index) => (
               <div key={index} className="item-card">
-                <img src={getProjectPhotoUrl(project.mainPhoto || '')} alt={project.title || 'Project'} className="item-thumb" />
+                <img src={getProjectPhotoUrl(project.mainPhoto || '')} alt={project.title || t('projectsPage.untitled')} className="item-thumb" />
                 <div className="item-info">
-                  <h3>{project.title || 'Untitled project'}</h3>
+                  <h3>{project.title || t('projectsPage.untitled')}</h3>
                   <p>{(project.description || '').substring(0, 100)}{(project.description || '').length > 100 ? '...' : ''}</p>
-                  {project.pinned && <span className="pin-badge">Pinned</span>}
+                  {project.pinned && <span className="pin-badge">{t('admin.pinnedBadge')}</span>}
                 </div>
                 <div className="item-actions">
-                  <button onClick={() => handleProjectPin(index)} className="pin-btn" title={project.pinned ? 'Unpin' : 'Pin first'}>
-                    {project.pinned ? '📌 Unpin' : '📌 Pin'}
+                  <button onClick={() => handleProjectPin(index)} className="pin-btn" title={project.pinned ? t('admin.unpinTooltip') : t('admin.pinTooltip')}>
+                    {project.pinned ? `📌 ${t('admin.unpin')}` : `📌 ${t('admin.pin')}`}
                   </button>
                   <button onClick={() => { setEditingProject(index); setShowProjectForm(true) }} className="edit-btn">
-                    Edit
+                    {t('admin.edit')}
                   </button>
                   <button onClick={() => handleProjectDelete(index)} className="delete-btn">
-                    Delete
+                    {t('admin.delete')}
                   </button>
                 </div>
               </div>
@@ -203,16 +212,16 @@ function AdminDashboard({ onLogout }) {
 
       {activeTab === 'members' && (
         <div className="admin-section">
-          <h2 className="admin-subtitle">Direction (5 slots)</h2>
+          <h2 className="admin-subtitle">{t('admin.directionHeading')}</h2>
           <div className="direction-slots">
             {[0, 1, 2, 3, 4].map((slotIndex) => (
               <div key={slotIndex} className="direction-slot">
-                <label>Slot {slotIndex + 1}</label>
+                <label>{t('admin.slotLabel', { n: slotIndex + 1 })}</label>
                 <select
                   value={directionSlots[slotIndex] ?? ''}
                   onChange={(e) => setDirectionSlot(slotIndex, e.target.value || null)}
                 >
-                  <option value="">— Empty —</option>
+                  <option value="">{t('admin.directionEmptyOption')}</option>
                   {members.map((m) => (
                     <option key={m.id} value={m.id}>
                       {m.name}
@@ -222,9 +231,9 @@ function AdminDashboard({ onLogout }) {
               </div>
             ))}
           </div>
-          <h2 className="admin-subtitle">All members (order)</h2>
+          <h2 className="admin-subtitle">{t('admin.membersOrderHeading')}</h2>
           <button onClick={() => { setEditingMember(null); setShowMemberForm(true) }} className="add-btn">
-            Add New Member
+            {t('admin.addMember')}
           </button>
           {showMemberForm && (
             <MemberForm
@@ -247,10 +256,10 @@ function AdminDashboard({ onLogout }) {
                 </div>
                 <div className="item-actions">
                   <button onClick={() => { setEditingMember(index); setShowMemberForm(true) }} className="edit-btn">
-                    Edit
+                    {t('admin.edit')}
                   </button>
                   <button onClick={() => handleMemberDelete(index)} className="delete-btn">
-                    Delete
+                    {t('admin.delete')}
                   </button>
                 </div>
               </div>
@@ -262,7 +271,7 @@ function AdminDashboard({ onLogout }) {
       {activeTab === 'links' && (
         <div className="admin-section">
           <button onClick={() => { setEditingLink(null); setShowLinkForm(true) }} className="add-btn">
-            Add New Link
+            {t('admin.addLink')}
           </button>
           {showLinkForm && (
             <LinkForm
@@ -276,15 +285,15 @@ function AdminDashboard({ onLogout }) {
               <div key={index} className="item-card">
                 <div className="item-info">
                   <h3>{link.title}</h3>
-                  <p>{link.description || 'No description'}</p>
+                  <p>{link.description || t('admin.noDescription')}</p>
                   <a href={link.url} target="_blank" rel="noopener noreferrer">{link.url}</a>
                 </div>
                 <div className="item-actions">
                   <button onClick={() => { setEditingLink(index); setShowLinkForm(true) }} className="edit-btn">
-                    Edit
+                    {t('admin.edit')}
                   </button>
                   <button onClick={() => handleLinkDelete(index)} className="delete-btn">
-                    Delete
+                    {t('admin.delete')}
                   </button>
                 </div>
               </div>

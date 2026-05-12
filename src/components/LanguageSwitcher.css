@@ -1,0 +1,124 @@
+/* Header: custom dropdown aligned to the right of the strip */
+.lang-switcher-wrap {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 120;
+}
+
+.lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1.2;
+  color: #c2185b;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-trigger:hover {
+  background: rgba(194, 24, 91, 0.1);
+  color: #a01550;
+}
+
+.lang-trigger:focus {
+  outline: none;
+}
+
+.lang-trigger:focus-visible {
+  outline: 2px solid #c2185b;
+  outline-offset: 2px;
+}
+
+.lang-trigger-arrow {
+  font-size: 0.55rem;
+  opacity: 0.85;
+  transition: transform 0.2s;
+}
+
+.lang-trigger-arrow.open {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  min-width: 10rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.lang-dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+.lang-dropdown-menu button:hover {
+  background: transparent;
+  color: #333;
+}
+
+.lang-dropdown-menu button.active {
+  background: transparent;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Sidebar: native select as dropdown, row aligned to the right */
+.lang-switcher-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+}
+
+.lang-switcher-sidebar-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #666;
+  white-space: nowrap;
+}
+
+.lang-switcher-select {
+  flex: 0 1 auto;
+  min-width: 7rem;
+  max-width: 11rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+  background: #fff;
+  cursor: pointer;
+}
+
+.sidebar-lang-item {
+  list-style: none;
+  padding: 14px 24px 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+}

@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "title": "Rotaract Club de Barcelona Diagonal",
+    "logoAlt": "Logotip del Rotaract Club de Barcelona Diagonal"
+  },
+  "langSwitcher": {
+    "label": "Llengua",
+    "en": "English",
+    "es": "Español",
+    "ca": "Català"
+  },
+  "nav": {
+    "home": "Inici",
+    "projects": "Projectes",
+    "theClub": "El club",
+    "aboutUs": "Qui som",
+    "meetings": "Trobades",
+    "usefulLinks": "Enllaços",
+    "members": "Membres",
+    "admin": "Admin",
+    "login": "Accés"
+  },
+  "footer": {
+    "copyright": "© {{year}} Rotaract Club de Barcelona Diagonal"
+  },
+  "home": {
+    "heroKicker": "Servei · Lideratge · Germanor",
+    "heroHeadline": "Rotaract Club Barcelona Diagonal",
+    "heroSub": "Descobreix els projectes, coneix el club i mira com t’hi pots afegir.",
+    "exploreProjects": "Veure projectes",
+    "aboutUsCta": "Qui som",
+    "title": "Club Barcelona Diagonal",
+    "lead": "Els clubs Rotaract agrupen persones majors de 18 anys per intercanviar idees amb líders del territori, desenvolupar competències de lideratge i professionals i divertir-se fent servei comunitari. Les persones membres decideixen com organitzar el club, gestionar-ne els fons i planificar activitats i projectes solidaris: pertànyer-hi és una gran manera de fer voluntariat, créixer personalment i crear xarxa d’amics i amigues, local i també universal.",
+    "exploreHeading": "Explora el club",
+    "exploreLead": "Vés al que més agrada qui ens visita: primer projectes i després tot el que necessites saber sobre nosaltres i com unir-te.",
+    "exploreOpen": "Obrir",
+    "exploreInstagram": "Obrir Instagram",
+    "cards": {
+      "projects": {
+        "title": "Projectes",
+        "tagline": "Impacte fet realitat",
+        "description": "De campanyes de casa fins a aliances internacionals —mira què hem fet en equip."
+      },
+      "about": {
+        "title": "Qui som",
+        "tagline": "La nostra identitat",
+        "description": "La nostra història, els valors i el que significa Barcelona Diagonal al Rotaract."
+      },
+      "members": {
+        "title": "Membres",
+        "tagline": "Junta i equip",
+        "description": "Fes un cop d’ull a qui impulsa trobades, projectes i la vida associativa."
+      },
+      "meetings": {
+        "title": "Trobades",
+        "tagline": "Ens veiem",
+        "description": "Quan i on ens trobem — i com vindre de convidada o convidat."
+      },
+      "links": {
+        "title": "Enllaços",
+        "tagline": "Mantenim el contacte",
+        "description": "Instagram, Rotary i eines que fem servir al club."
+      },
+      "contact": {
+        "tagline": "Digues hola",
+        "title": "Contacte",
+        "description": "Escriu-nos per Instagram: és on parlem amb qui ens descobreix i resolem dubtes sobre ser-ne soci o sòcia."
+      }
+    },
+    "joinHeading": "Puc formar part del Rotaract?",
+    "joinBodyBefore": "Encantats d’acollir gent nova. Envians un missatge a ",
+    "joinBodyAfter": " i t’orientarem. Les persones candidates han de conèixer el club i assistir a les trobades durant un període de tres mesos; transcorregut aquest temps es pot concedir la condició de soci o sòcia plena amb una votació per majoria.",
+    "contactHeading": "Contacte",
+    "contactLeadBefore": "Ho tenim fàcil: escriu-nos amb ",
+    "contactLeadStrong": "missatge directe d’Instagram",
+    "contactLeadAfter": ". Explica qui ets i què t’interessa — alta, visitar una trobada o col·laborar — i et respondrem al mateix canal.",
+    "instagramCta": "Escriu-nos a Instagram"
+  },
+  "about": {
+    "pageTitle": "Qui som",
+    "introBefore": "Rotaract Barcelona Diagonal és un ",
+    "introEmphasis": "club petit amb molta empenta",
+    "introAfter": ": vam arrencar gairebé de zero, vam créixer ràpid i ara som una colla jovent molt activa que aposta pel servei, la germanor i estar on calgui.",
+    "originTitle": "Com vam reobrir el club",
+    "originP1Before": "El ",
+    "originP1Strong": "abril del 2024",
+    "originP1After": ", quatre persones feren el pas quan el club portava temps tancat per inactivitat. Rotary ens va convidar a reobrir Barcelona Diagonal —no com una institució tancada, sinó amb un full en blanc que podíem omplir plegats.",
+    "originP2": "Aquell inici modest va marcar com som: hem après fent pinya, amb pràctica i compromís davant la perfecció —especialment quan es tracta de servir ciutat i xarxa.",
+    "growthTitle": "De quatre impulsores fins a vint companyes i companys",
+    "growthLeadBefore": "Vam començar sent ",
+    "growthLeadStrongFour": "4 persones",
+    "growthLeadMid": " amb el mandat de reactivar el club. Avui som ",
+    "growthLeadStrongTwenty": "unes 20 membres molt actives",
+    "growthLeadAfter": " i seguim créixent.",
+    "growthP2": "Amb cada entrada nova hi ha més llengües, talent i punts de vista. T’agradi la logística, la comunicació, la creativitat o fer mans a l’hora del projecte —sempre hi ha espai.",
+    "spiritTitle": "Com som",
+    "handsOnLabel": "Molt pràctics",
+    "handsOnText": "Ens movem al que sigui solidari al territori, intercanvis internacionals, recaptacions i cops de mà ràpids quan apareix l’oportunitat.",
+    "welcomingLabel": "Ambient acollidor",
+    "welcomingText": "To deliberadament informal: es poden fer mil preguntes, els errors sense drama i l’acompanyament circular entre perfils diferents —no només la junta.",
+    "heartLabel": "Rotaract al bell mig",
+    "heartText": "Treballem fidels a l’esperit Rotary —germanor, ètica i servei sense esperar-ne profit— amb reunions vivíssimes on manden els projectes concrets.",
+    "thanksTitle": "Gràcies especials",
+    "thanksP1Before": "Volem agrair d’una manera molt explícita al ",
+    "thanksP1Club": "Rotary Club Barcelona Diagonal",
+    "thanksP1After": ", el patrocini del qual permet continuar com a club Rotaract i sumar noves iniciatives.",
+    "thanksP2Before": "També donem les gràcies al ",
+    "thanksP2Club": "Rotary Club Milenium",
+    "thanksP2After": ", que tant sovint ha fet costat quan hem necessitat suport.",
+    "visitTitle": "Vine a saludar",
+    "visitLeadBefore": "Amb curiositat n’hi ha prou per una primera visita. Esperem cada ",
+    "visitStrongWhen": "dilluns, de 20:30 a 21:30",
+    "visitMidAt": ", a ",
+    "visitStrongWhere": "carrer de Bruc 147, 3è D, 2a",
+    "visitOutroBefore": ". Si vols contactar abans de venir, escriu-nos per ",
+    "visitInstagramLink": "Instagram",
+    "visitOutroAfter": ": sol ser el canal on responguem a la gent que arriba de fora."
+  },
+  "meetings": {
+    "pageTitle": "Trobades",
+    "lead": "Ens trobem cada setmana per planificar projectes, fer seguiment del que passa i rebre visites. Vine quan vulguis —qui arriba de fora sempre és benvingut.",
+    "whenTitle": "Quan coincidim",
+    "dayLabel": "Dia",
+    "dayValue": "Cada dilluns",
+    "timeLabel": "Hora",
+    "whereTitle": "On és la trobada",
+    "addressNoteBefore": "El marcador senyala l’immoble del carrer de Bruc; en arribar, truca al ",
+    "addressNoteAfter": " o consulta algú del club pel timbre correcte.",
+    "mapIframeTitle": "Mapa: carrer de Bruc 147, Barcelona",
+    "openMaps": "Obrir a Google Maps"
+  },
+  "linksPage": {
+    "pageTitle": "Enllaços",
+    "empty": "Encara no hi ha enllaços publicats."
+  },
+  "membersPage": {
+    "pageTitle": "Membres",
+    "directionHeading": "Junta directiva",
+    "membersHeading": "Socis i sòcies",
+    "slot": "Lloc {{n}}",
+    "noOthers": "Aquí encara no n’hi ha més al llistat."
+  },
+  "projectsPage": {
+    "pageTitle": "Projectes",
+    "none": "Ara mateix no hi ha projectes publicats.",
+    "untitled": "Projecte sense títol"
+  },
+  "projectDetail": {
+    "description": "Descripció",
+    "whatDone": "Què vam fer",
+    "whatLearned": "Què en vam aprendre",
+    "gallery": "Galeria",
+    "photoAlt": "Foto del projecte {{n}}",
+    "closeAria": "Tancar",
+    "mapAlt": ""
+  },
+  "loginPage": {
+    "title": "Accés d’administració",
+    "usernamePlaceholder": "Nom d’usuari",
+    "passwordPlaceholder": "Contrasenya",
+    "checking": "Comprovant…",
+    "submit": "Entrar",
+    "invalidCredentials": "Nom d’usuari o contrasenya incorrectes",
+    "genericError": "Alguna cosa ha anat malament. Prova-ho una altra vegada d’aquí poc."
+  },
+  "admin": {
+    "title": "Tauler d’administració",
+    "exportSiteData": "Exportar dades del web",
+    "exportTitle": "Descarrega site-data.json i col·loca’l dins public/ per publicar-ho al servidor",
+    "logout": "Tanca la sessió",
+    "tabProjects": "Projectes",
+    "tabMembers": "Membres",
+    "tabLinks": "Enllaços",
+    "addProject": "Afegir projecte",
+    "addMember": "Afegir persona",
+    "addLink": "Afegir enllaç",
+    "pin": "Fixar damunt",
+    "unpin": "Desfixar",
+    "pinTooltip": "Mostrar el primer",
+    "unpinTooltip": "Ja no destacar",
+    "pinnedBadge": "Destacat",
+    "edit": "Editar",
+    "delete": "Suprimir",
+    "noDescription": "Sense descripció breu",
+    "directionHeading": "Junta (cinc llocs)",
+    "slotLabel": "Lloc {{n}}",
+    "directionEmptyOption": "— Buit —",
+    "membersOrderHeading": "Totes les persones (ordre)",
+    "confirmDeleteProject": "Segur que vols suprimir aquest projecte?",
+    "confirmDeleteMember": "Segur que vols suprimir aquesta persona?",
+    "confirmDeleteLink": "Segur que vols suprimir aquest enllaç?"
+  },
+  "projectForm": {
+    "editTitle": "Editar projecte",
+    "addTitle": "Nou projecte",
+    "labelTitle": "Títol",
+    "labelDescription": "Descripció breu",
+    "labelFolder": "Carpeta del projecte (des de /projects)",
+    "folderPlaceholder": "— Tria una carpeta —",
+    "folderHintBefore": "Les carpetes i fotos venen del directori ",
+    "folderHintCodeFolder": "projects/",
+    "folderHintMid": " del repositori. Executa ",
+    "folderHintCodeCmd": "npm run sync-projects",
+    "folderHintAfter": " sempre que hi afegeixis fitxers (o en arrencar dev/build).",
+    "labelMainPhoto": "Foto principal",
+    "mainPhotoPlaceholder": "— Tria foto principal —",
+    "labelCrop": "Enquadrament en retallar la imatge",
+    "cropTop": "Part alta",
+    "cropCentre": "Centre",
+    "cropBottom": "Part baixa",
+    "cropHint": "Tria quina zona de la foto ha de destacar més quan es retalli al web.",
+    "labelWhatDone": "Què vam fer",
+    "labelWhatLearned": "Què en vam aprendre",
+    "labelGallery": "Més fotos (galeria)",
+    "galleryHint": "Mantén premut Ctrl (Windows) o ⌘ (macOS) per seleccionar diverses fotos.",
+    "save": "Desar projecte",
+    "cancel": "Cancel·lar",
+    "titlePlaceholder": "Títol (opcional)",
+    "descriptionPlaceholder": "Descripció (opcional)"
+  },
+  "memberForm": {
+    "editTitle": "Editar persona",
+    "addTitle": "Afegir persona",
+    "labelName": "Nom",
+    "labelRole": "Càrrec públic",
+    "rolePlaceholder": "Per exemple President, Secretari, Membre…",
+    "labelPhoto": "Foto",
+    "photoPlaceholder": "— Tria foto —",
+    "photosHintBefore": "Les fotos són a ",
+    "photosHintCodeFolder": "members/",
+    "photosHintMid": ". Afegeix-ne i llavors executa ",
+    "photosHintCodeCmd": "npm run sync-members",
+    "photosHintAfter": ".",
+    "syncErrorHint": "Executa npm run sync-members per tornar a generar el llistat des de members/.",
+    "save": "Desar",
+    "cancel": "Cancel·lar"
+  },
+  "linkForm": {
+    "editTitle": "Editar enllaç",
+    "addTitle": "Afegir enllaç",
+    "labelTitle": "Títol visible",
+    "labelUrl": "URL",
+    "urlPlaceholder": "https://…",
+    "labelDescription": "Descripció",
+    "descriptionPlaceholder": "Breu descripció de l’enllaç",
+    "save": "Desar enllaç",
+    "cancel": "Cancel·lar"
+  },
+  "memberRoles": {
+    "president": "Presidenta",
+    "vicePresident": "Vicepresident",
+    "treasurer": "Tresorer",
+    "secretary": "Secretari",
+    "member": "Membre",
+    "socialNetworksManager": "Responsable de xarxes socials"
+  }
+}

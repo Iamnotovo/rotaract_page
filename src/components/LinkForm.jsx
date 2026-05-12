@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useI18n } from '../i18n/LanguageContext'
 import './LinkForm.css'
 
 function LinkForm({ link, onSave, onCancel }) {
+  const { t } = useI18n()
   const [formData, setFormData] = useState({
     title: '',
     url: '',
@@ -33,10 +35,10 @@ function LinkForm({ link, onSave, onCancel }) {
   return (
     <div className="form-modal">
       <div className="form-content">
-        <h2>{link ? 'Edit Link' : 'Add New Link'}</h2>
+        <h2>{link ? t('linkForm.editTitle') : t('linkForm.addTitle')}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Title:</label>
+            <label>{t('linkForm.labelTitle')}:</label>
             <input
               type="text"
               name="title"
@@ -47,31 +49,31 @@ function LinkForm({ link, onSave, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label>URL:</label>
+            <label>{t('linkForm.labelUrl')}:</label>
             <input
               type="url"
               name="url"
               value={formData.url}
               onChange={handleChange}
-              placeholder="https://..."
+              placeholder={t('linkForm.urlPlaceholder')}
               required
             />
           </div>
 
           <div className="form-group">
-            <label>Description:</label>
+            <label>{t('linkForm.labelDescription')}:</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
               rows="4"
-              placeholder="Brief description of what this link is about"
+              placeholder={t('linkForm.descriptionPlaceholder')}
             />
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="save-btn">Save Link</button>
-            <button type="button" onClick={onCancel} className="cancel-btn">Cancel</button>
+            <button type="submit" className="save-btn">{t('linkForm.save')}</button>
+            <button type="button" onClick={onCancel} className="cancel-btn">{t('linkForm.cancel')}</button>
           </div>
         </form>
       </div>

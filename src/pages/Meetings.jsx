@@ -1,4 +1,5 @@
 import React from 'react'
+import { useI18n } from '../i18n/LanguageContext'
 import './Page.css'
 import './Meetings.css'
 
@@ -7,29 +8,27 @@ const MAP_EMBED_QUERY =
   'Carrer+de+Bruc+147,+08037+Barcelona,+Spain'
 
 function Meetings() {
+  const { t } = useI18n()
   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${MAP_EMBED_QUERY}`
 
   return (
     <div className="page meetings-page">
-      <h1 className="page-title">Meetings</h1>
+      <h1 className="page-title">{t('meetings.pageTitle')}</h1>
 
       <div className="page-content meetings-content">
-        <p className="meetings-lead">
-          We gather every week to plan projects, share updates, and welcome guests.
-          Drop by — visitors are always welcome.
-        </p>
+        <p className="meetings-lead">{t('meetings.lead')}</p>
 
         <section className="meetings-card meetings-schedule" aria-labelledby="meetings-schedule-heading">
           <h2 id="meetings-schedule-heading" className="meetings-card-title">
-            When we meet
+            {t('meetings.whenTitle')}
           </h2>
           <dl className="meetings-details">
             <div className="meetings-detail-row">
-              <dt>Day</dt>
-              <dd>Every Monday</dd>
+              <dt>{t('meetings.dayLabel')}</dt>
+              <dd>{t('meetings.dayValue')}</dd>
             </div>
             <div className="meetings-detail-row">
-              <dt>Time</dt>
+              <dt>{t('meetings.timeLabel')}</dt>
               <dd>
                 <time dateTime="20:30">20:30</time>
                 {' – '}
@@ -41,16 +40,17 @@ function Meetings() {
 
         <section className="meetings-card meetings-location" aria-labelledby="meetings-location-heading">
           <h2 id="meetings-location-heading" className="meetings-card-title">
-            Where we meet
+            {t('meetings.whereTitle')}
           </h2>
           <address className="meetings-address">{MEETING_ADDRESS}</address>
           <p className="meetings-address-note">
-            The marker shows the building on Carrer de Bruc; ring at{' '}
-            <strong>3º D, 2ª</strong> when you arrive or ask a member for the exact bell.
+            {t('meetings.addressNoteBefore')}
+            <strong>3º D, 2ª</strong>
+            {t('meetings.addressNoteAfter')}
           </p>
           <div className="meetings-map-wrap">
             <iframe
-              title="Map: Carrer de Bruc 147, Barcelona"
+              title={t('meetings.mapIframeTitle')}
               className="meetings-map"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -59,7 +59,7 @@ function Meetings() {
             />
           </div>
           <a href={mapsHref} className="meetings-map-link" target="_blank" rel="noopener noreferrer">
-            Open in Google Maps
+            {t('meetings.openMaps')}
           </a>
         </section>
       </div>

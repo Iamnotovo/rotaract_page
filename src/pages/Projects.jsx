@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import ProjectDetail from '../components/ProjectDetail'
+import { useI18n } from '../i18n/LanguageContext'
+import { getLocalizedProject } from '../i18n/localizedSite'
 import { loadSiteData } from '../utils/siteData'
 import './Projects.css'
 
 function Projects() {
+  const { locale, t } = useI18n()
   const [projects, setProjects] = useState([])
   const [selectedProject, setSelectedProject] = useState(null)
 
@@ -18,18 +21,23 @@ function Projects() {
     return () => { cancelled = true }
   }, [])
 
+  const displayProjects = useMemo(
+    () => projects.map((p) => getLocalizedProject(p, locale)),
+    [projects, locale]
+  )
+
   return (
     <div className="projects-page">
-      <h1 className="page-title">Projects</h1>
+      <h1 className="page-title">{t('projectsPage.pageTitle')}</h1>
       
       {projects.length === 0 ? (
-        <p className="no-projects">No projects available at the moment.</p>
+        <p className="no-projects">{t('projectsPage.none')}</p>
       ) : (
         <>
           <div className="projects-grid">
-            {projects.map((project, index) => (
+            {displayProjects.map((project, index) => (
               <ProjectCard
-                key={index}
+                key={`${locale}-${project.i18nKey ?? index}`}
                 project={project}
                 onClick={() => setSelectedProject(index)}
               />
@@ -38,7 +46,7 @@ function Projects() {
 
           {selectedProject !== null && (
             <ProjectDetail
-              project={projects[selectedProject]}
+              project={displayProjects[selectedProject]}
               onClose={() => setSelectedProject(null)}
             />
           )}

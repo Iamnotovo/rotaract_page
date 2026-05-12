@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useI18n } from '../i18n/LanguageContext'
 import './Sidebar.css'
 
 function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn }) {
+  const { t } = useI18n()
   const [clubDropdownOpen, setClubDropdownOpen] = useState(false)
 
   const handleNavClick = (section) => {
@@ -29,7 +32,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
               }}
               className={currentSection === 'home' ? 'active' : ''}
             >
-              Home
+              {t('nav.home')}
             </a>
           </li>
           <li>
@@ -41,7 +44,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
               }}
               className={currentSection === 'projects' ? 'active' : ''}
             >
-              Projects
+              {t('nav.projects')}
             </a>
           </li>
           <li className="dropdown">
@@ -53,7 +56,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
                 setClubDropdownOpen(!clubDropdownOpen)
               }}
             >
-              <span>The Club</span>
+              <span>{t('nav.theClub')}</span>
               <span className={`dropdown-arrow ${clubDropdownOpen ? 'open' : ''}`}>▼</span>
             </a>
             <ul className={`dropdown-menu ${clubDropdownOpen ? 'active' : ''}`}>
@@ -66,7 +69,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
                   }}
                   className={currentSection === 'about-us' ? 'active' : ''}
                 >
-                  About Us
+                  {t('nav.aboutUs')}
                 </a>
               </li>
               <li>
@@ -78,7 +81,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
                   }}
                   className={currentSection === 'meetings' ? 'active' : ''}
                 >
-                  Meetings
+                  {t('nav.meetings')}
                 </a>
               </li>
               <li>
@@ -90,7 +93,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
                   }}
                   className={currentSection === 'useful-links' ? 'active' : ''}
                 >
-                  Useful Links
+                  {t('nav.usefulLinks')}
                 </a>
               </li>
               <li>
@@ -102,7 +105,7 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
                   }}
                   className={currentSection === 'members' ? 'active' : ''}
                 >
-                  Members
+                  {t('nav.members')}
                 </a>
               </li>
             </ul>
@@ -116,8 +119,11 @@ function Sidebar({ isOpen, onClose, currentSection, onNavigate, isAdminLoggedIn 
               }}
               className={currentSection === 'admin-login' || currentSection === 'admin-dashboard' ? 'active' : ''}
             >
-              {isAdminLoggedIn ? 'Admin' : 'Login'}
+              {isAdminLoggedIn ? t('nav.admin') : t('nav.login')}
             </a>
+          </li>
+          <li className="sidebar-lang-item">
+            <LanguageSwitcher variant="sidebar" />
           </li>
         </ul>
       </nav>

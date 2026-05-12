@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getProjectPhotoUrl } from '../utils/memberPhoto'
+import { useI18n } from '../i18n/LanguageContext'
 import './ProjectForm.css'
 
 const BASE = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL
@@ -7,6 +8,7 @@ const BASE = typeof import.meta !== 'undefined' && import.meta.env && import.met
   : './'
 
 function ProjectForm({ project, onSave, onCancel }) {
+  const { t } = useI18n()
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -122,39 +124,39 @@ function ProjectForm({ project, onSave, onCancel }) {
   return (
     <div className="form-modal">
       <div className="form-content">
-        <h2>{project ? 'Edit Project' : 'Add New Project'}</h2>
+        <h2>{project ? t('projectForm.editTitle') : t('projectForm.addTitle')}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Title:</label>
+            <label>{t('projectForm.labelTitle')}:</label>
             <input
               type="text"
               name="title"
               value={formData.title}
               onChange={handleChange}
-              placeholder="Project title (optional)"
+              placeholder={t('projectForm.titlePlaceholder')}
             />
           </div>
 
           <div className="form-group">
-            <label>Description:</label>
+            <label>{t('projectForm.labelDescription')}:</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
               rows="4"
-              placeholder="Description (optional)"
+              placeholder={t('projectForm.descriptionPlaceholder')}
             />
           </div>
 
           <div className="form-group">
-            <label>Project folder (from /projects):</label>
+            <label>{t('projectForm.labelFolder')}:</label>
             <select
               value={selectedFolder}
               onChange={handleFolderChange}
               required
               className="photo-select"
             >
-              <option value="">— Choose a project folder —</option>
+              <option value="">{t('projectForm.folderPlaceholder')}</option>
               {projectFolders.map((p) => (
                 <option key={p.project} value={p.project}>
                   {p.project}
@@ -162,13 +164,12 @@ function ProjectForm({ project, onSave, onCancel }) {
               ))}
             </select>
             <p className="photo-hint">
-              Folders and images come from the <code>projects/</code> directory in your repo.
-              Run <code>npm run sync-projects</code> (or start dev/build) after adding files.
+              {t('projectForm.folderHintBefore')}<code>{t('projectForm.folderHintCodeFolder')}</code>{t('projectForm.folderHintMid')}<code>{t('projectForm.folderHintCodeCmd')}</code>{t('projectForm.folderHintAfter')}
             </p>
           </div>
 
           <div className="form-group">
-            <label>Main Photo:</label>
+            <label>{t('projectForm.labelMainPhoto')}:</label>
             <select
               name="mainPhoto"
               value={formData.mainPhoto}
@@ -177,7 +178,7 @@ function ProjectForm({ project, onSave, onCancel }) {
               className="photo-select"
               disabled={!selectedFolder || currentFiles.length === 0}
             >
-              <option value="">— Choose main photo —</option>
+              <option value="">{t('projectForm.mainPhotoPlaceholder')}</option>
               {currentFiles.map((filename) => (
                 <option
                   key={filename}
@@ -190,7 +191,7 @@ function ProjectForm({ project, onSave, onCancel }) {
             {formData.mainPhoto && (
               <img
                 src={getProjectPhotoUrl(formData.mainPhoto)}
-                alt="Preview"
+                alt=""
                 className="photo-preview"
                 style={{ objectPosition: formData.mainPhotoPosition }}
               />
@@ -198,22 +199,22 @@ function ProjectForm({ project, onSave, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label>Show more of the photo (crop focus):</label>
+            <label>{t('projectForm.labelCrop')}:</label>
             <select
               name="mainPhotoPosition"
               value={formData.mainPhotoPosition}
               onChange={handleChange}
               className="photo-select"
             >
-              <option value="center top">Top</option>
-              <option value="center center">Center</option>
-              <option value="center bottom">Bottom</option>
+              <option value="center top">{t('projectForm.cropTop')}</option>
+              <option value="center center">{t('projectForm.cropCentre')}</option>
+              <option value="center bottom">{t('projectForm.cropBottom')}</option>
             </select>
-            <p className="photo-hint">Choose which part of the image is visible when it’s cropped to fit.</p>
+            <p className="photo-hint">{t('projectForm.cropHint')}</p>
           </div>
 
           <div className="form-group">
-            <label>What Was Done:</label>
+            <label>{t('projectForm.labelWhatDone')}:</label>
             <textarea
               name="whatDone"
               value={formData.whatDone}
@@ -223,7 +224,7 @@ function ProjectForm({ project, onSave, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label>What We Learned:</label>
+            <label>{t('projectForm.labelWhatLearned')}:</label>
             <textarea
               name="whatLearned"
               value={formData.whatLearned}
@@ -233,7 +234,7 @@ function ProjectForm({ project, onSave, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label>Additional Photos (gallery):</label>
+            <label>{t('projectForm.labelGallery')}:</label>
             <select
               multiple
               value={formData.photos}
@@ -250,14 +251,12 @@ function ProjectForm({ project, onSave, onCancel }) {
                 )
               })}
             </select>
-            <p className="photo-hint">
-              Hold Ctrl (Windows) or Cmd (Mac) to select multiple photos for the gallery.
-            </p>
+            <p className="photo-hint">{t('projectForm.galleryHint')}</p>
             {formData.photos.length > 0 && (
               <div className="photos-preview">
                 {formData.photos.map((photo, index) => (
-                  <div key={index} className="photo-preview-item">
-                    <img src={getProjectPhotoUrl(photo)} alt={`Preview ${index + 1}`} className="photo-preview-small" />
+                  <div key={photo + index} className="photo-preview-item">
+                    <img src={getProjectPhotoUrl(photo)} alt="" className="photo-preview-small" />
                   </div>
                 ))}
               </div>
@@ -265,8 +264,8 @@ function ProjectForm({ project, onSave, onCancel }) {
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="save-btn">Save Project</button>
-            <button type="button" onClick={onCancel} className="cancel-btn">Cancel</button>
+            <button type="submit" className="save-btn">{t('projectForm.save')}</button>
+            <button type="button" onClick={onCancel} className="cancel-btn">{t('projectForm.cancel')}</button>
           </div>
         </form>
       </div>

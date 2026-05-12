@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { getMemberPhotoUrl } from '../utils/memberPhoto'
 import { loadSiteData } from '../utils/siteData'
+import { useI18n } from '../i18n/LanguageContext'
+import { translateMemberRole } from '../i18n/localizedSite'
 import './Members.css'
 
 function Members() {
+  const { locale, t } = useI18n()
   const [members, setMembers] = useState([])
   const [directionSlots, setDirectionSlots] = useState([null, null, null, null, null])
 
@@ -28,10 +31,10 @@ function Members() {
 
   return (
     <div className="page members-page">
-      <h1 className="page-title">Members</h1>
+      <h1 className="page-title">{t('membersPage.pageTitle')}</h1>
 
       <section className="members-section">
-        <h2 className="section-heading">Direction</h2>
+        <h2 className="section-heading">{t('membersPage.directionHeading')}</h2>
         <div className="members-grid direction-grid">
           {[0, 1, 2, 3, 4].map((i) => {
             const member = directionMembers[i]
@@ -42,11 +45,13 @@ function Members() {
                     <img src={getMemberPhotoUrl(member.photo)} alt={member.name} className="member-photo" />
                     <div className="member-info">
                       <h3 className="member-name">{member.name}</h3>
-                      {member.role && <p className="member-role">{member.role}</p>}
+                      {member.role && (
+                        <p className="member-role">{translateMemberRole(member.role, locale)}</p>
+                      )}
                     </div>
                   </>
                 ) : (
-                  <div className="member-slot-empty">Slot {i + 1}</div>
+                  <div className="member-slot-empty">{t('membersPage.slot', { n: i + 1 })}</div>
                 )}
               </div>
             )
@@ -55,9 +60,9 @@ function Members() {
       </section>
 
       <section className="members-section">
-        <h2 className="section-heading">Members</h2>
+        <h2 className="section-heading">{t('membersPage.membersHeading')}</h2>
         {restOrdered.length === 0 ? (
-          <p className="no-members">No other members yet.</p>
+          <p className="no-members">{t('membersPage.noOthers')}</p>
         ) : (
           <div className="members-grid">
             {restOrdered.map((member, index) => (
@@ -65,7 +70,9 @@ function Members() {
                 <img src={getMemberPhotoUrl(member.photo)} alt={member.name} className="member-photo" />
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>
-                  {member.role && <p className="member-role">{member.role}</p>}
+                  {member.role && (
+                    <p className="member-role">{translateMemberRole(member.role, locale)}</p>
+                  )}
                 </div>
               </div>
             ))}

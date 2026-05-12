@@ -1,109 +1,79 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import { useI18n } from '../i18n/LanguageContext'
 import './Home.css'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/rotaractdiagonal/'
 
-const EXPLORE_CARDS = [
-  {
-    section: 'projects',
-    title: 'Projects',
-    tagline: 'Impact in action',
-    description:
-      'From local drives to international partnerships—see what we’ve built together.',
-    featured: true,
-  },
-  {
-    section: 'about-us',
-    title: 'About us',
-    tagline: 'Who we are',
-    description:
-      'Our story, values, and what Rotaract Barcelona Diagonal stands for.',
-  },
-  {
-    section: 'members',
-    title: 'Members',
-    tagline: 'Meet the board',
-    description:
-      'Say hello to the people planning meetings, projects, and club life.',
-  },
-  {
-    section: 'meetings',
-    title: 'Meetings',
-    tagline: 'Join us',
-    description:
-      'When and where we gather—and how to drop in as a guest.',
-  },
-  {
-    section: 'useful-links',
-    title: 'Useful links',
-    tagline: 'Stay connected',
-    description:
-      'Instagram, Rotary resources, and tools we use as a club.',
-  },
+const EXPLORE_META = [
+  { section: 'projects', msgKey: 'projects', featured: true },
+  { section: 'about-us', msgKey: 'about' },
+  { section: 'members', msgKey: 'members' },
+  { section: 'meetings', msgKey: 'meetings' },
+  { section: 'useful-links', msgKey: 'links' },
 ]
 
 function Home({ onNavigate }) {
+  const { t } = useI18n()
   const base = import.meta.env.BASE_URL
+
+  const exploreCards = useMemo(
+    () =>
+      EXPLORE_META.map((row) => ({
+        section: row.section,
+        featured: row.featured,
+        title: t(`home.cards.${row.msgKey}.title`),
+        tagline: t(`home.cards.${row.msgKey}.tagline`),
+        description: t(`home.cards.${row.msgKey}.description`),
+      })),
+    [t]
+  )
 
   return (
     <div className="home">
       <section className="hero">
         <img
           src={`${base}group-photo.jpeg`}
-          alt="Rotaract Club de Barcelona Diagonal"
+          alt={t('meta.logoAlt')}
           className="hero-image"
         />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
-          <p className="hero-kicker">Service · Leadership · Fellowship</p>
-          <p className="hero-headline">Rotaract Club Barcelona Diagonal</p>
-          <p className="hero-sub">
-            Discover our projects, meet the club, and find out how to get involved.
-          </p>
+          <p className="hero-kicker">{t('home.heroKicker')}</p>
+          <p className="hero-headline">{t('home.heroHeadline')}</p>
+          <p className="hero-sub">{t('home.heroSub')}</p>
           <div className="hero-actions">
             <button
               type="button"
               className="hero-btn hero-btn-primary"
               onClick={() => onNavigate?.('projects')}
             >
-              Explore projects
+              {t('home.exploreProjects')}
             </button>
             <button
               type="button"
               className="hero-btn hero-btn-secondary"
               onClick={() => onNavigate?.('about-us')}
             >
-              About us
+              {t('home.aboutUsCta')}
             </button>
           </div>
         </div>
       </section>
 
       <div className="home-content">
-        <h1 className="home-title">Club Barcelona Diagonal</h1>
+        <h1 className="home-title">{t('home.title')}</h1>
 
-        <p className="home-lead">
-          Rotaract clubs bring together people ages 18 and older to exchange ideas
-          with leaders in the community, develop leadership and professional skills,
-          and have fun through service. Rotaract members decide how to organize and
-          run their clubs, manage their own funds, and plan and carry out activities
-          and service projects: becoming a member offers great opportunities of
-          experience in community service, self-development and a network of friends,
-          both local and global.
-        </p>
+        <p className="home-lead">{t('home.lead')}</p>
 
         <section className="home-explore" aria-labelledby="explore-heading">
           <div className="home-explore-intro">
             <h2 id="explore-heading" className="home-explore-title">
-              Explore the club
+              {t('home.exploreHeading')}
             </h2>
-            <p className="home-explore-lead">
-              Jump straight into the parts of our site visitors love most—projects first,
-              then everything you need to know about who we are and how to join us.
-            </p>
+            <p className="home-explore-lead">{t('home.exploreLead')}</p>
           </div>
           <div className="explore-grid">
-            {EXPLORE_CARDS.map((card) => (
+            {exploreCards.map((card) => (
               <button
                 key={card.section}
                 type="button"
@@ -117,7 +87,7 @@ function Home({ onNavigate }) {
                   <span className="explore-card-desc">{card.description}</span>
                 </div>
                 <span className="explore-card-cta">
-                  Open
+                  {t('home.exploreOpen')}
                   <span className="explore-card-arrow" aria-hidden="true">
                     →
                   </span>
@@ -132,14 +102,12 @@ function Home({ onNavigate }) {
             >
               <span className="explore-card-accent explore-card-accent-muted" aria-hidden="true" />
               <div className="explore-card-stack">
-                <span className="explore-card-tagline">Say hello</span>
-                <span className="explore-card-title">Contact us</span>
-                <span className="explore-card-desc">
-                  Message us on Instagram — it’s how we chat with visitors and answer questions about joining.
-                </span>
+                <span className="explore-card-tagline">{t('home.cards.contact.tagline')}</span>
+                <span className="explore-card-title">{t('home.cards.contact.title')}</span>
+                <span className="explore-card-desc">{t('home.cards.contact.description')}</span>
               </div>
               <span className="explore-card-cta">
-                Open Instagram
+                {t('home.exploreInstagram')}
                 <span className="explore-card-arrow" aria-hidden="true">
                   →
                 </span>
@@ -149,24 +117,23 @@ function Home({ onNavigate }) {
         </section>
 
         <div className="home-block">
-          <h2 className="home-heading">Can I join Rotaract?</h2>
+          <h2 className="home-heading">{t('home.joinHeading')}</h2>
           <p>
-            With pleasure! We are always welcoming new members. Send us a message on{' '}
+            {t('home.joinBodyBefore')}
             <a href={INSTAGRAM_URL} className="home-link" target="_blank" rel="noopener noreferrer">
               Instagram
-            </a>{' '}
-            so we can help you get started. Candidate members are asked to get to know the club and participate in
-            meetings during a period lasting 3 months, upon which their full
-            membership will be granted during a majority based voting session.
+            </a>
+            {' '}
+            {t('home.joinBodyAfter')}
           </p>
         </div>
 
         <div id="home-contact" className="home-block home-block-contact">
-          <h2 className="home-heading">Contact us</h2>
+          <h2 className="home-heading">{t('home.contactHeading')}</h2>
           <p>
-            We keep things simple: please reach out through{' '}
-            <strong>Instagram direct messages</strong>. Tell us who you are and what you’re curious about —
-            membership, visiting a meeting, or collaborating — and we’ll get back to you there.
+            {t('home.contactLeadBefore')}
+            <strong>{t('home.contactLeadStrong')}</strong>
+            {t('home.contactLeadAfter')}
           </p>
           <a
             href={INSTAGRAM_URL}
@@ -174,7 +141,7 @@ function Home({ onNavigate }) {
             rel="noopener noreferrer"
             className="home-instagram-cta"
           >
-            Message us on Instagram
+            {t('home.instagramCta')}
           </a>
         </div>
       </div>
