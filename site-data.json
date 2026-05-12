@@ -1,6 +1,7 @@
 {
   "projects": [
     {
+      "i18nKey": "santJordi",
       "title": "Selling roses in Sant Jordi",
       "description": "To celebrate Sant Jordi, our club organized a charity stall at the bustling corner of Balmes and Diagonal. This year, our \"Day of the Rose and the Book\" had a specific mission: supporting the Asociación TRIQ. All proceeds from our sales were dedicated to this organization, which provides essential support, resources, and empowerment to single mothers in Tangier, Morocco. By blending our local Catalan traditions with international solidarity, we aimed to turn every rose sold into a gesture of support for women in need.",
       "mainPhoto": "projects/stjordi/stjordi.png",
@@ -10,6 +11,7 @@
       "pinned": true
     },
     {
+      "i18nKey": "tanger",
       "title": "Trip to Tangier with Triq association",
       "description": "Following our successful Sant Jordi fundraiser, a delegation from our club traveled to Tangier, Morocco, to work directly with Asociación TRIQ. Our goal was to bridge the gap between our fundraising in Barcelona and the real-world impact on the ground. This international service mission allowed us to witness firsthand the challenges faced by single mothers and vulnerable children in Tangier, providing hands-on support through employment initiatives, childcare assistance, and educational outreach.",
       "mainPhoto": "projects/tanger/tanger.JPG",
@@ -19,6 +21,7 @@
       "pinned": true
     },
     {
+      "i18nKey": "granRecapte",
       "title": "The Gran Recapte (Great Food Drive)",
       "description": "Our club participated in the Gran Recapte d'Aliments, a massive regional food drive aimed at supporting individuals in vulnerable situations. This project is a cornerstone of our local service efforts, focusing on the fundamental Rotaract value of community development and fighting food insecurity right here in our city.",
       "mainPhoto": "projects/granrecapte/gr.png",
@@ -29,6 +32,7 @@
       "pinned": false
     },
     {
+      "i18nKey": "culturalBox",
       "title": "International Cultural Box Exchange",
       "description": "To strengthen our International Service and global fellowship, we participated in a \"Cultural Box\" exchange with the Karşıyaka Rotaract Club from Turkey. This project allowed us to build a bridge between Barcelona and Izmir, celebrating the diversity that defines the international Rotaract movement.",
       "mainPhoto": "projects/culturalbox/culturalbox.png",
@@ -147,16 +151,19 @@
   ],
   "usefulLinks": [
     {
+      "i18nKey": "instagram",
       "title": "Instagram",
       "url": "https://www.instagram.com/rotaractdiagonal/",
       "description": "Follow our day-to-day: projects, meetings, trips, and club life in photos and reels."
     },
     {
+      "i18nKey": "rotaryInternational",
       "title": "Rotary International",
       "url": "https://www.rotary.org/en",
       "description": "The official Rotary site: programs, news, and how Rotary and Rotaract serve communities worldwide."
     },
     {
+      "i18nKey": "email",
       "title": "Email",
       "url": "mailto:rotaract.diagonal@rotary2202.org",
       "description": "Write to the club directly for membership, partnerships, or general questions."
