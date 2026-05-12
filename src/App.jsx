@@ -40,7 +40,7 @@ function App() {
   const renderContent = () => {
     switch (currentSection) {
       case 'home':
-        return <Home />
+        return <Home onNavigate={navigateTo} />
       case 'projects':
         return <Projects />
       case 'about-us':

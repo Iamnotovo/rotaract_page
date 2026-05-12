@@ -161,12 +161,6 @@ function AdminDashboard({ onLogout }) {
         >
           Useful Links
         </button>
-        <button
-          className={activeTab === 'contacts' ? 'active' : ''}
-          onClick={() => setActiveTab('contacts')}
-        >
-          Contact Submissions
-        </button>
       </div>
 
       {activeTab === 'projects' && (
@@ -296,47 +290,6 @@ function AdminDashboard({ onLogout }) {
               </div>
             ))}
           </div>
-        </div>
-      )}
-
-      {activeTab === 'contacts' && (
-        <div className="admin-section">
-          <ContactSubmissions />
-        </div>
-      )}
-    </div>
-  )
-}
-
-function ContactSubmissions() {
-  const [submissions, setSubmissions] = useState([])
-
-  React.useEffect(() => {
-    const saved = localStorage.getItem('contactSubmissions')
-    if (saved) {
-      setSubmissions(JSON.parse(saved))
-    }
-  }, [])
-
-  return (
-    <div className="contact-submissions">
-      <h2>Contact Form Submissions</h2>
-      {submissions.length === 0 ? (
-        <p>No submissions yet.</p>
-      ) : (
-        <div className="submissions-list">
-          {submissions.map((submission, index) => (
-            <div key={index} className="submission-card">
-              <div className="submission-header">
-                <strong>{submission.name}</strong>
-                <span className="submission-date">
-                  {new Date(submission.date).toLocaleDateString()}
-                </span>
-              </div>
-              <p className="submission-email">{submission.email}</p>
-              <p className="submission-message">{submission.message}</p>
-            </div>
-          ))}
         </div>
       )}
     </div>

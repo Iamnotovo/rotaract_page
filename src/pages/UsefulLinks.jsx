@@ -21,14 +21,25 @@ function UsefulLinks() {
           <p>No links available yet.</p>
         ) : (
           <div className="links-list">
-            {links.map((link, index) => (
+            {links.map((link, index) => {
+              const isMailto = typeof link.url === 'string' && link.url.trim().toLowerCase().startsWith('mailto:')
+              return (
               <div key={index} className="link-item">
-                <a href={link.url} target="_blank" rel="noopener noreferrer" className="link-title">
+                <a
+                  href={link.url}
+                  className="link-title"
+                  {...(isMailto
+                    ? {}
+                    : { target: '_blank', rel: 'noopener noreferrer' })}
+                >
                   {link.title}
                 </a>
-                {link.description && <p className="link-description">{link.description}</p>}
+                {link.description?.trim() ? (
+                  <p className="link-description">{link.description.trim()}</p>
+                ) : null}
               </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </div>

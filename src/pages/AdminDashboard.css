@@ -236,54 +236,6 @@
     background-color: #b0154d;
 }
 
-.contact-submissions h2 {
-    color: #333333;
-    margin-bottom: 20px;
-}
-
-.submissions-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.submission-card {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.submission-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.submission-header strong {
-    color: #333333;
-    font-size: 1.1em;
-}
-
-.submission-date {
-    color: #666;
-    font-size: 0.9em;
-}
-
-.submission-email {
-    color: #003366;
-    margin: 5px 0;
-    font-weight: 500;
-}
-
-.submission-message {
-    color: black;
-    margin-top: 10px;
-    line-height: 1.6;
-    white-space: pre-wrap;
-}
-
 @media (max-width: 768px) {
     .admin-header {
         flex-direction: column;

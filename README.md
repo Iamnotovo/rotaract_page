@@ -4,12 +4,11 @@ A modern React website for the Rotaract Club de Barcelona Diagonal.
 
 ## Features
 
-- **Home Page**: Who We Are section with photos, Can I Join Rotaract info, and contact form
+- **Home Page**: Hero, explore navigation, Can I Join Rotaract info, and Instagram-based contact
 - **Projects**: Card grid display with detailed project views (title, photo, description, gallery)
 - **Club Sections**: About Us, Meetings, Useful Links, and Members
 - **Members**: Photo, name, and role display
-- **Admin Panel**: Full CRUD management for projects, members, links, and contact submissions
-- **Contact Form**: Saves submissions to admin dashboard
+- **Admin Panel**: Full CRUD management for projects, members, and links
 - **Responsive Design**: Modern UI with sidebar navigation
 
 ## Setup
@@ -64,5 +63,4 @@ Admins can manage:
 - **Projects**: Add/edit/delete with title, photo, description, what was done, what we learned, and gallery photos
 - **Members**: Add/edit/delete with photo, name, and role
 - **Useful Links**: Add/edit/delete links with descriptions
-- **Contact Submissions**: View all contact form submissions
 

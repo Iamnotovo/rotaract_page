@@ -149,12 +149,17 @@
     {
       "title": "Instagram",
       "url": "https://www.instagram.com/rotaractdiagonal/",
-      "description": ""
+      "description": "Follow our day-to-day: projects, meetings, trips, and club life in photos and reels."
     },
     {
-      "title": "Rotary  Internacional Organization",
+      "title": "Rotary International",
       "url": "https://www.rotary.org/en",
-      "description": ""
+      "description": "The official Rotary site: programs, news, and how Rotary and Rotaract serve communities worldwide."
+    },
+    {
+      "title": "Email",
+      "url": "mailto:rotaract.diagonal@rotary2202.org",
+      "description": "Write to the club directly for membership, partnerships, or general questions."
     }
   ]
 }

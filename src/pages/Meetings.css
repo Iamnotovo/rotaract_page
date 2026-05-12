@@ -1,0 +1,126 @@
+.meetings-page .meetings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.meetings-lead {
+    color: #444;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    margin: 0 0 0.25rem;
+}
+
+.meetings-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.meetings-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #c2185b;
+    letter-spacing: 0.01em;
+    margin: 0 0 1rem;
+}
+
+.meetings-details {
+    margin: 0;
+}
+
+.meetings-detail-row {
+    display: grid;
+    grid-template-columns: minmax(5rem, 7rem) 1fr;
+    gap: 0.75rem 1rem;
+    align-items: baseline;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.meetings-detail-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.meetings-detail-row:first-child {
+    padding-top: 0;
+}
+
+.meetings-detail-row dt {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888;
+}
+
+.meetings-detail-row dd {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.meetings-address {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #333;
+    margin: 0 0 0.75rem;
+}
+
+.meetings-address-note {
+    margin: 0 0 1rem;
+    font-size: 0.9375rem;
+    color: #555;
+    line-height: 1.65;
+}
+
+.meetings-map-wrap {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+    background: #e8e8e8;
+}
+
+.meetings-map {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.meetings-map-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #c2185b;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.meetings-map-link:hover {
+    border-bottom-color: #c2185b;
+}
+
+@media (max-width: 768px) {
+    .meetings-detail-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .meetings-map-wrap {
+        aspect-ratio: 4 / 3;
+        min-height: 200px;
+    }
+}
