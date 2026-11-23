@@ -1,30 +1,22 @@
 [
-  {
-    "project": "culturalbox",
-    "path": "projects/culturalbox",
-    "files": [
-      "culturalbox.png"
-    ]
-  },
-  {
-    "project": "granrecapte",
-    "path": "projects/granrecapte",
-    "files": [
-      "gr.png"
-    ]
-  },
-  {
-    "project": "stjordi",
-    "path": "projects/stjordi",
-    "files": [
-      "stjordi.png"
-    ]
-  },
-  {
-    "project": "tanger",
-    "path": "projects/tanger",
-    "files": [
-      "tanger.JPG"
-    ]
-  }
+    {
+        "project": "culturalbox",
+        "path": "projects/culturalbox",
+        "files": ["culturalbox.png"]
+    },
+    {
+        "project": "granrecapte",
+        "path": "projects/granrecapte",
+        "files": ["gr.png"]
+    },
+    {
+        "project": "stjordi",
+        "path": "projects/stjordi",
+        "files": ["stjordi.png"]
+    },
+    {
+        "project": "tanger",
+        "path": "projects/tanger",
+        "files": ["tanger.JPG"]
+    }
 ]
